@@ -20,9 +20,10 @@ Display::Display(const char* title, int w, int h){
     this->renderer = SDL_CreateRenderer(this->window,-1,0);
 }
 void Display::update(){
-    SDL_SetRenderDrawColor(this->renderer, 3, 255, 255, 255);
+    // SDL_SetRenderDrawColor(this->renderer, 3, 255, 255, 255);
 	SDL_RenderClear(this->renderer);
-	SDL_RenderPresent(this->renderer);
+    SDL_SetRenderDrawColor(this->renderer, 3, 255, 83, 255);
+
 }
 void Display::cleanup(){
 	SDL_DestroyWindow(this->window);
