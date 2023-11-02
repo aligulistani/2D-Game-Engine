@@ -9,7 +9,7 @@ public:
 	Display(const char* title, int w, int h);
     // SDL_Texture* loadTexture(const char* path);
     void cleanup();
-	void renderObject();
+	void renderObjects();
 	void update();
 	void changeTitle(const char* title);
 	void windowResize(int w, int h);
@@ -21,6 +21,7 @@ public:
 	int width;
 	int height;
 	const char* title;
+	int fps_cap = -1;
 private:
 	// SDL_Window* window;
 	// SDL_Renderer* renderer;
