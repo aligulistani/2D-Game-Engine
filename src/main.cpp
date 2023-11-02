@@ -16,6 +16,7 @@ SDL_Renderer* renderer;
 
 void clean_up();
 
+<<<<<<< HEAD
 
 int main(int argc,char **argv){
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -36,6 +37,10 @@ int main(int argc,char **argv){
 	// SDL_RenderPresent(renderer);
 	}
 	clean_up();
+=======
+int main(){
+	std::cout << "Fuck you Istifatty!" << std::endl;
+>>>>>>> d219c172e78d0219166bd7df99dd91e8cfc7e740
 	return 0;		
 }
 
