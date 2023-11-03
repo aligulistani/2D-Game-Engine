@@ -10,4 +10,6 @@ class GameScene{
         GameScene();
         std::vector<GameObject> activeObjects;
         void addObjectToScene(GameObject obj);
+        void update();
+        void clearScene();
 };

@@ -11,9 +11,12 @@ GameObject::GameObject(int x, int y,int w,int h){
     this->y = y;
     this->w = w;
     this->h = h;
-    this->rect = SDL_Rect();
-    rect.x = x;
-    rect.y = y;
-    rect.w = w;
-    rect.h = h;
+    this->rect = {this->x,this->y,this->w,this->h};
 };
+
+void GameObject::changeX(int x){
+    this->rect.x = x;
+}
+void GameObject::changeY(int y){
+    this->rect.y = y;
+}

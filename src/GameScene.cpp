@@ -6,5 +6,12 @@
 GameScene::GameScene(){}
 void GameScene::addObjectToScene(GameObject obj){
         this->activeObjects.push_back(obj);
-
 }
+void GameScene::clearScene(){
+    this->activeObjects.clear();
+}
+// void GameScene::update(){
+//     for(int i=0;i<this->activeObjects.size();i++){
+
+//     }
+// }
