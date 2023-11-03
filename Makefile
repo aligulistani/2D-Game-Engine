@@ -16,3 +16,10 @@ SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
 # Default rule
 all: # Rule to compile source files into object files
 	$(CC) $(SOURCES) $(CFLAGS) $(LDFLAGS) -o $(TARGET) 
+
+run:
+	make clean && make && ./$(TARGET)
+
+.PHONY: clean
+clean: 
+	rm -f $(TARGET)
