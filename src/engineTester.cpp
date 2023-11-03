@@ -22,7 +22,6 @@ int main(int argc,char **argv){
 	rectangle = GameObject(0,0,100,100);
 	scene = GameScene();
 
-
 	// GAME LOOP
 	while (true){
 		SDL_Event event;
