@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include<SDL2/SDL.h>
+#include<game-engine/GameScene.h>
 
 class Display {
 public:
@@ -9,7 +10,7 @@ public:
 	Display(const char* title, int w, int h);
     // SDL_Texture* loadTexture(const char* path);
     void cleanup();
-	void renderObjects();
+	void renderObjects(GameScene scene);
 	void update();
 	void changeTitle(const char* title);
 	void windowResize(int w, int h);

@@ -1,6 +1,11 @@
 {
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
-        "sdl.h": "c"
+        "sdl.h": "c",
+        "vector": "cpp",
+        "initializer_list": "cpp",
+        "type_traits": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp"
     }
 }

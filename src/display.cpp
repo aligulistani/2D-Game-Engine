@@ -1,4 +1,5 @@
-#include <game-engine/display.h>
+#include <game-engine/main.h>
+#include<game-engine/GameScene.h>
 
 Display::Display(){
     //DEFAULT WINDOW SETTINGS
@@ -22,9 +23,11 @@ Display::Display(const char* title, int w, int h){
 void Display::update(){
     SDL_RenderClear(this->renderer);
 }
-void Display::renderObjects(){
+void Display::renderObjects(GameScene scene){
     SDL_SetRenderDrawColor(this->renderer, 3, 255, 83, 255);
-    // SDL_RenderFillRect(main_window.renderer,NULL);
+    for(int i=0;i<scene.activeObjects.size();i++){
+        SDL_RenderFillRect(this->renderer,&scene.activeObjects[i].rect);
+    }
     SDL_SetRenderDrawColor(this->renderer, 3, 255, 255, 255);
     SDL_RenderPresent(this->renderer);
 }
