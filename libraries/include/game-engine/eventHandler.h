@@ -1,8 +1,9 @@
 #pragma once
 #include<SDL2/SDL.h>
 
-struct EventHandler{
-public:
-    SDL_Event event;
-    void initHandler();
+class EventHandler{
+    public:
+        SDL_Event current_event;
+        EventHandler();
+        bool pollEvents(); // Must be called every tick!
 };

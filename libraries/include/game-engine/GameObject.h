@@ -15,6 +15,6 @@ class GameObject{
         int y;
         int w;
         int h;
-        SDL_Rect rect;
+        SDL_FRect rect;
 
 };
