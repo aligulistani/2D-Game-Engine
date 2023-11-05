@@ -23,7 +23,7 @@ int main(int argc,char **argv){
 	GameEngine::initialize();
 
 	main_window = Display(window_title,WINDOW_WIDTH,WINDOW_HEIGHT);
-	rectangle = GameObject((WINDOW_WIDTH/2) - 25/2,(WINDOW_HEIGHT/2) - 25/2,25,25);
+	rectangle = GameObject(0,0,25,25);
 	scene = GameScene();
 
 	ninja = Texture("./res/ninja/Idle.png",main_window.renderer);
@@ -42,11 +42,23 @@ void calculate_angle(){
 
 void game_loop(){
 	scene.addObjectToScene(&rectangle);
-	float y = sin(SDL_GetTicks()/1000.0f);
-	rectangle.setVel(std::vector<float>{0.05f,y});
-	if(rectangle.pos[1] >= WINDOW_HEIGHT){
-		rectangle.rect.y = 0;
+	
+	float y = sin((SDL_GetTicks()));
+
+	rectangle.setPos({SDL_GetTicks()/50.0f,200.0f*sin(rectangle.pos[0]/5.0f)+WINDOW_HEIGHT/2});
+
+	// rectangle.setVel(std::vector<float>{0.05f,y});
+	std::cout << rectangle.pos[1] << std::endl;
+	if(rectangle.pos[1] >= WINDOW_HEIGHT ){// BOTTOM WALL
+		rectangle.pos[1] = WINDOW_HEIGHT-25;
+	}else if(rectangle.pos[1] <= 0){ // TOP WALL
+		rectangle.pos[1] = 0;
+	}else if(rectangle.pos[0] >= WINDOW_WIDTH){// RIGHT WALL
+		rectangle.pos[0] = WINDOW_WIDTH-25;
+	}else if(rectangle.pos[0] <= 0){// LEFT WALL
+		rectangle.pos[0] = 0;
 	}
+
 
 	main_window.update();
 	main_window.renderObjects(scene);
