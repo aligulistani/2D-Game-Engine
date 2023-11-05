@@ -1,4 +1,4 @@
-#include<SDL2/SDL.h>
+#pragma once
 #include<game-engine/main.h>
 
 GameObject::GameObject(){};
@@ -7,6 +7,12 @@ GameObject::GameObject(float x, float y){
     this->velocity = {0.0f,0.0f}; // Default velocity
     this->rect = {x,y,50,50}; //Default Rectangle
 };
+GameObject::GameObject(float x, float y, Animation t, bool physicsEnabled){
+    this->pos = {x,y};
+    this->velocity = {0.0f,0.0f}; // Default velocity
+    this->rect = {this->pos[0],this->pos[1],w,h};
+    this->animation = t;
+};
 GameObject::GameObject(float x, float y,float w,float h){
     this->w = w;
     this->h = h;
@@ -14,7 +20,6 @@ GameObject::GameObject(float x, float y,float w,float h){
     this->velocity = {0.0f,0.0f}; // Default velocity
     this->rect = {this->pos[0],this->pos[1],w,h};
 };
-
 void GameObject::changeX(float x){
     this->rect.x = x;
 }

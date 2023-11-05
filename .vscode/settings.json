@@ -43,6 +43,18 @@
         "xmemory": "cpp",
         "xstddef": "cpp",
         "xtr1common": "cpp",
-        "gamescene.h": "c"
+        "gamescene.h": "c",
+        "algorithm": "cpp",
+        "chrono": "cpp",
+        "ctime": "cpp",
+        "filesystem": "cpp",
+        "iomanip": "cpp",
+        "list": "cpp",
+        "locale": "cpp",
+        "ratio": "cpp",
+        "xlocbuf": "cpp",
+        "xlocmes": "cpp",
+        "xlocmon": "cpp",
+        "xloctime": "cpp"
     }
 }

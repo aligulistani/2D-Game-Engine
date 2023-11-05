@@ -1,5 +1,5 @@
-#include <game-engine/main.h>
-#include<game-engine/GameScene.h>
+#pragma once
+#include<game-engine/main.h>
 
 Display::Display(){
     //DEFAULT WINDOW SETTINGS
@@ -27,12 +27,17 @@ void Display::renderObjects(GameScene scene){
     SDL_SetRenderDrawColor(this->renderer,255, 255, 255, 255);
     for(int i=0;i<scene.activeObjects.size();i++){
         scene.activeObjects[i]->move({scene.activeObjects[i]->velocity[0],scene.activeObjects[i]->velocity[1]});
-        SDL_RenderFillRectF(this->renderer,&scene.activeObjects[i]->rect);
+        // SDL_RenderFillRectF(this->renderer,&scene.activeObjects[i]->rect);
+
+        // scene.activeObjects[i]->animation.dest.x = (int)&scene.activeObjects[i]->pos[0];
+        // scene.activeObjects[i]->animation.dest.y = (int)&scene.activeObjects[i]->pos[1];
+
+        // Rendering Animations
+        // SDL_RenderCopyEx(this->renderer,scene.activeObjects[i]->animation.image,scene.activeObjects[i]->animation.source,scene.activeObjects[i]->animation.dest,0,NULL,SDL_FLIP_NONE);
     }
-    // for(int i=0;i<scene.array.size();i++){
-    //     SDL_RenderDrawPoint(this->renderer,(int)&scene.array[i].pos[0],(int)&scene.array[1].pos[1]);
-    // }
-    // SDL_RenderDrawPoints(this->renderer,&scene.array,100);
+
+
+
     for(int i=0;i<1280;i++){
         SDL_RenderDrawPoint(this->renderer, i, 720-25);
     }

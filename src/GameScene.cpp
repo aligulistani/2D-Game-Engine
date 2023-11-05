@@ -1,7 +1,8 @@
-#include<SDL2/SDL.h>
+#pragma once
 #include<game-engine/main.h>
-#include<game-engine/GameScene.h>
+
 #include<iostream>
+#include<vector>
 
 GameScene::GameScene(){}
 void GameScene::addArrayToScene(std::vector<GameObject> array){

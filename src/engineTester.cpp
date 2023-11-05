@@ -1,9 +1,4 @@
-#include<SDL2/SDL.h>
-#include<iostream>
-#include<string>
-#include<math.h>
 #include<game-engine/main.h>
-#include<vector>
 
 int WINDOW_WIDTH = 1280;
 int WINDOW_HEIGHT = 720;
@@ -14,7 +9,8 @@ GameScene scene;
 Display main_window;
 
 GameObject rectangle;
-Texture ninja;
+Sprite ninja_sprite;
+GameObject ninja;
 
 void game_loop();
 void clean_up();
@@ -24,19 +20,17 @@ float clock_temp_start;
 
 int main(int argc,char **argv){
 	GameEngine::initialize();
+
 	main_window = Display(window_title,WINDOW_WIDTH,WINDOW_HEIGHT);
-	rectangle = GameObject(50,100,25,25);
 	scene = GameScene();
 
-	ninja = Texture("./res/ninja/Idle.png",main_window.renderer);
+	ninja_sprite = Sprite("./res/ninja/Idle.png");
+	// rectangle = GameObject(50.0f,100.0f,25,25);
+
 	GameEngine::set_main_game_loop(game_loop,-1);
 	clean_up();
 	return 0;		
 }
-float velocity_x = 0.5f;
-float velocity_y = 0.5f;
-float speed = 1.0f;
-
 
 const float force_gravity = 9.81f;
 
@@ -89,7 +83,7 @@ void game_loop(){
 		y.push_back(rectangle.pos[1]);
 	}
 
-	std::cout << inital_throw_force << std::endl;
+	// std::cout << inital_throw_force << std::endl;
 
 	if(rectangle.pos[1] >= WINDOW_HEIGHT ){// BOTTOM WALL
 		rectangle.pos[1] = WINDOW_HEIGHT-50;

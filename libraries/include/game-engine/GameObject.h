@@ -1,13 +1,12 @@
 #pragma once
-#include<SDL2/SDL.h>
 #include<game-engine/main.h>
-#include<vector>
 class GameObject{
     public:
         GameObject();
         GameObject(float x, float y);
-        GameObject(float x, float y, SDL_Texture* texture,bool physicsEnabled);
+        GameObject(float x, float y, Animation t,bool physicsEnabled);
         GameObject(float x, float y,float w,float h);
+        Animation animation;
         void changeX(float x);
         void changeY(float y);
         void setVel(std::vector<float> vel);

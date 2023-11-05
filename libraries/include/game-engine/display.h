@@ -1,7 +1,5 @@
 #pragma once
-#include <iostream>
-#include<SDL2/SDL.h>
-#include<game-engine/GameScene.h>
+#include<game-engine/main.h>
 
 class Display {
 public:

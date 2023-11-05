@@ -1,6 +1,5 @@
+#pragma once
 #include<game-engine/main.h>
-#include<SDL2/SDL.h>
-
 
 GameEngine::GameEngine(){};
 void GameEngine::initialize(){

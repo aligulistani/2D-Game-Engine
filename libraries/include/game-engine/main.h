@@ -1,13 +1,20 @@
 #pragma once
+
 #include<SDL2/SDL.h>
-#include<vector>
+#include<SDL2/SDL_image.h>
+
+#include<game-engine/GameScene.h>
 #include<game-engine/display.h>
 #include<game-engine/eventHandler.h>
-#include<game-engine/GameObject.h>
-#include<game-engine/GameScene.h>
 #include<game-engine/Texture.h>
 #include<game-engine/Timer.h>
+#include<game-engine/Animation.h>
+#include<game-engine/GameObject.h>
+#include<game-engine/Sprite.h>
 
+#include<vector>
+#include<iostream>
+#include<string>
 
 class GameEngine{
 public:

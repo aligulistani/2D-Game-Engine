@@ -1,5 +1,5 @@
+#pragma once
 #include<game-engine/main.h>
-#include<SDL2/SDL.h>
 
 EventHandler::EventHandler(){}
 bool EventHandler::pollEvents(){
