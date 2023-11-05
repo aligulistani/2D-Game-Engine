@@ -1,7 +1,7 @@
 #include<game-engine/main.h>
 
-#include<iostream>
-#include<vector>
+//#include<iostream>
+//#include<vector>
 
 GameScene::GameScene(){}
 void GameScene::addArrayToScene(std::vector<GameObject> array){

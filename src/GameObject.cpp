@@ -1,6 +1,8 @@
 
 #include<game-engine/main.h>
-
+//#include<SDL2/SDL.h>
+//#include<game-engine/Animation.h>
+//#include<vector>
 GameObject::GameObject(){};
 GameObject::GameObject(float x, float y){
     this->pos = {x,y};
