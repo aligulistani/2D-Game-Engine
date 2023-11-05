@@ -16,6 +16,16 @@
 #include<iostream>
 #include<string>
 
+class GameObject;
+class GameScene;
+class EventHandler;
+class Display;
+class Animation;
+class Texture;
+class Sprite;
+class Timer;
+
+
 class GameEngine{
 public:
     GameEngine();

@@ -1,4 +1,3 @@
-#pragma once
 #include<game-engine/main.h>
 
 Animation::Animation(const char* file_path, SDL_Renderer* renderer, int frames, int animation_speed){

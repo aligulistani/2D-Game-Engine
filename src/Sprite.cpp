@@ -1,7 +1,6 @@
-#pragma once
-#include<game-engine/main.h>
 
 #include<game-engine/main.h>
+
 namespace fs = std::filesystem;
 
 Sprite::Sprite(const char* file_path, SDL_Renderer* r){

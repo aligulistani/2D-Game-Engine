@@ -1,4 +1,4 @@
-#pragma once
+
 #include<game-engine/main.h>
 
 GameObject::GameObject(){};

@@ -1,5 +1,5 @@
 #pragma once
-#include<game-engine/main.h>
+#include<game-engine/GameObject.h>
 #include<vector>
 class GameScene{
     public:
