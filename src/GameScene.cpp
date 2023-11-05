@@ -4,7 +4,7 @@
 #include<iostream>
 
 GameScene::GameScene(){}
-void GameScene::addObjectToScene(GameObject obj){
+void GameScene::addObjectToScene(GameObject* obj){
         this->activeObjects.push_back(obj);
 }
 void GameScene::clearScene(){

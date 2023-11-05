@@ -1,6 +1,7 @@
 #include<SDL2/SDL.h>
 #include<iostream>
 #include<string>
+#include<math.h>
 #include<game-engine/main.h>
 
 
@@ -22,7 +23,7 @@ int main(int argc,char **argv){
 	GameEngine::initialize();
 
 	main_window = Display(window_title,WINDOW_WIDTH,WINDOW_HEIGHT);
-	rectangle = GameObject(0,0,100,100);
+	rectangle = GameObject((WINDOW_WIDTH/2) - 25/2,(WINDOW_HEIGHT/2) - 25/2,25,25);
 	scene = GameScene();
 
 	ninja = Texture("./res/ninja/Idle.png",main_window.renderer);
@@ -33,29 +34,18 @@ int main(int argc,char **argv){
 }
 float velocity_x = 0.5f;
 float velocity_y = 0.5f;
-float speed = 0.5f;
+float speed = 1.0f;
 
 void calculate_angle(){
 
 }
 
 void game_loop(){
-	scene.addObjectToScene(rectangle);
-	rectangle.rect.x += velocity_x;
-	rectangle.rect.y += velocity_y;
-
-	if(rectangle.rect.x+100 >= WINDOW_WIDTH){ // RIGHT WALL
-		velocity_x = -speed;
-		velocity_y = -speed;
-	}else if(rectangle.rect.y+100 >= WINDOW_HEIGHT){ // BOTTOM WALL
-		velocity_x = speed;
-		velocity_y = -speed;
-	}else if(rectangle.rect.x <= 0){ // LEFT WALL
-		velocity_x = -speed;
-		velocity_y = speed;
-	}else if(rectangle.rect.y <= 0){ // TOP WALL
-		velocity_x = -speed;
-		velocity_y = speed;
+	scene.addObjectToScene(&rectangle);
+	float y = sin(SDL_GetTicks()/1000.0f);
+	rectangle.setVel(std::vector<float>{0.05f,y});
+	if(rectangle.pos[1] >= WINDOW_HEIGHT){
+		rectangle.rect.y = 0;
 	}
 
 	main_window.update();

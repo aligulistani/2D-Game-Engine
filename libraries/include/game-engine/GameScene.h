@@ -8,8 +8,8 @@
 class GameScene{
     public:
         GameScene();
-        std::vector<GameObject> activeObjects;
-        void addObjectToScene(GameObject obj);
+        std::vector<GameObject*> activeObjects;
+        void addObjectToScene(GameObject* obj);
         void update();
         void clearScene();
 };

@@ -26,7 +26,8 @@ void Display::update(){
 void Display::renderObjects(GameScene scene){
     SDL_SetRenderDrawColor(this->renderer, 3, 255, 83, 255);
     for(int i=0;i<scene.activeObjects.size();i++){
-        SDL_RenderFillRectF(this->renderer,&scene.activeObjects[i].rect);
+        scene.activeObjects[i]->move({scene.activeObjects[i]->velocity[0],scene.activeObjects[i]->velocity[1]});
+        SDL_RenderFillRectF(this->renderer,&scene.activeObjects[i]->rect);
     }
     SDL_SetRenderDrawColor(this->renderer, 3, 255, 255, 255);
     // SDL_RenderCopyEx(this->renderer, e.getTexture()), &source, &dest, 0, NULL, NULL);
