@@ -45,6 +45,7 @@ void game_loop(){
 	
 	float y = sin((SDL_GetTicks()));
 
+
 	rectangle.setPos({SDL_GetTicks()/50.0f,200.0f*sin(rectangle.pos[0]/5.0f)+WINDOW_HEIGHT/2});
 
 	// rectangle.setVel(std::vector<float>{0.05f,y});
