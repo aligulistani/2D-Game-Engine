@@ -6,6 +6,7 @@
 #include<game-engine/GameObject.h>
 #include<game-engine/GameScene.h>
 #include<game-engine/Texture.h>
+#include<game-engine/Timer.h>
 
 
 class GameEngine{

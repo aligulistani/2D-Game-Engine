@@ -19,6 +19,7 @@ void GameEngine::set_main_game_loop(void (*game_loop_func)(), int fps_cap){
     EventHandler handler;
     while(open){
         // std::cout << handler.current_event.type << std::endl;
+
         handler.pollEvents();
         if(handler.current_event.type == SDL_QUIT){
             break;

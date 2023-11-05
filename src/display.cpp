@@ -29,6 +29,13 @@ void Display::renderObjects(GameScene scene){
         scene.activeObjects[i]->move({scene.activeObjects[i]->velocity[0],scene.activeObjects[i]->velocity[1]});
         SDL_RenderFillRectF(this->renderer,&scene.activeObjects[i]->rect);
     }
+    // for(int i=0;i<scene.array.size();i++){
+    //     SDL_RenderDrawPoint(this->renderer,(int)&scene.array[i].pos[0],(int)&scene.array[1].pos[1]);
+    // }
+    // SDL_RenderDrawPoints(this->renderer,&scene.array,100);
+    for(int i=0;i<1280;i++){
+        SDL_RenderDrawPoint(this->renderer, i, 720-25);
+    }
     SDL_SetRenderDrawColor(this->renderer, 0, 0, 0, 255);
     // SDL_RenderCopyEx(this->renderer, e.getTexture()), &source, &dest, 0, NULL, NULL);
     SDL_RenderPresent(this->renderer);
