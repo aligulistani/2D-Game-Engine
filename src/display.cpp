@@ -34,12 +34,15 @@ void Display::renderObjects(GameScene scene){
     for(int i=0;i<scene.activeObjects.size();i++){
         scene.activeObjects[i]->move({scene.activeObjects[i]->velocity[0],scene.activeObjects[i]->velocity[1]});
         // SDL_RenderFillRectF(this->renderer,&scene.activeObjects[i]->rect);
-
         // scene.activeObjects[i]->animation.dest.x = (int)&scene.activeObjects[i]->pos[0];
         // scene.activeObjects[i]->animation.dest.y = (int)&scene.activeObjects[i]->pos[1];
+        scene.activeObjects[i]->sprite.animation.animate();
+        // scene.activeObjects[i]->sprite.animation.animation_current_frame = 1;
+        // std::cout << scene.activeObjects[i]->sprite.animation.source.w << std::endl;
+        // std::cout << scene.activeObjects[i]->sprite.texture.h << std::endl;
 
         // Rendering Animations
-        // SDL_RenderCopyEx(this->renderer,scene.activeObjects[i]->animation.image,scene.activeObjects[i]->animation.source,scene.activeObjects[i]->animation.dest,0,NULL,SDL_FLIP_NONE);
+        SDL_RenderCopyEx(this->renderer,scene.activeObjects[i]->sprite.texture._rawImage,&(scene.activeObjects[i]->sprite.animation.source),&(scene.activeObjects[i]->sprite.animation.dest),0,NULL,SDL_FLIP_NONE);
     }
 
 

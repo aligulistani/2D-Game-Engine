@@ -10,7 +10,7 @@ class GameObject{
         GameObject(float x, float y);
         GameObject(float x, float y, Sprite t,bool physicsEnabled);
         GameObject(float x, float y,float w,float h);
-        Sprite animation;
+        Sprite sprite;
         void changeX(float x);
         void changeY(float y);
         void setVel(std::vector<float> vel);

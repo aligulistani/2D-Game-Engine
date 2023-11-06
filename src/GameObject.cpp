@@ -14,7 +14,7 @@ GameObject::GameObject(float x, float y, Sprite t, bool physicsEnabled){
     this->pos = {x,y};
     this->velocity = {0.0f,0.0f}; // Default velocity
     this->rect = {this->pos[0],this->pos[1],w,h};
-    this->animation = t;
+    this->sprite = t;
 };
 GameObject::GameObject(float x, float y,float w,float h){
     this->w = w;
