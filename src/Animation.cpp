@@ -33,7 +33,7 @@ Animation::Animation(Texture t, SDL_Renderer* renderer, int frames, int animatio
 	this->animation_speed = animation_speed; // Default Speed is 150 milliseconds
 };
 void Animation::animate(){
-    this->animation_current_frame = (SDL_GetTicks() / 150) % 8;
+    this->animation_current_frame = (SDL_GetTicks() / this->animation_speed) % this->frame_count;
 	this->source.x = (temp_t.w/frame_count) * this->animation_current_frame;
 }
 void Animation::setAnimationSpeed(int s){

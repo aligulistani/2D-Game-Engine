@@ -7,7 +7,7 @@ Sprite::Sprite(const char* file_path, SDL_Renderer* r){
     this->texture = Texture(file_path, r);
     this->renderer = r;
 
-    this->animation = Animation(this->texture, this->renderer, 8, 150);
+    this->animation = Animation(this->texture, this->renderer, 6, 150);
 };
 Sprite::Sprite(){};
 

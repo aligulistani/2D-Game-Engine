@@ -37,13 +37,13 @@ void Display::renderObjects(GameScene scene){
         // scene.activeObjects[i]->animation.dest.x = (int)&scene.activeObjects[i]->pos[0];
         // scene.activeObjects[i]->animation.dest.y = (int)&scene.activeObjects[i]->pos[1];
         scene.activeObjects[i]->sprite.animation.animate();
-        scene.activeObjects[i]->sprite.animation.dest.x =  scene.activeObjects[i]->pos[0]; // TEMP VALUES, NEED TO BE VARIABLES
-        scene.activeObjects[i]->sprite.animation.dest.y = scene.activeObjects[i]->pos[1];
+        scene.activeObjects[i]->sprite.animation.dest.x =  scene.activeObjects[i]->pos[0] - scene.activeObjects[i]->sprite.animation.source.w; // TEMP VALUES, NEED TO BE VARIABLES
+        scene.activeObjects[i]->sprite.animation.dest.y = scene.activeObjects[i]->pos[1] - scene.activeObjects[i]->sprite.animation.source.h;
         scene.activeObjects[i]->sprite.animation.dest.w = (scene.activeObjects[i]->sprite.texture.w/scene.activeObjects[i]->sprite.animation.frame_count) * 2;
         scene.activeObjects[i]->sprite.animation.dest.h = scene.activeObjects[i]->sprite.texture.h * 2;
-        // scene.activeObjects[i]->sprite.animation.animation_current_frame = 1;
-        // std::cout << scene.activeObjects[i]->sprite.animation.source.w << std::endl;
-        // std::cout << scene.activeObjects[i]->sprite.texture.h << std::endl;
+        scene.activeObjects[i]->sprite.animation.animation_current_frame = 1;
+        std::cout << scene.activeObjects[i]->sprite.animation.source.w << std::endl;
+        std::cout << scene.activeObjects[i]->sprite.texture.h << std::endl;
 
         // Rendering Animations
         SDL_RenderCopyEx(this->renderer,scene.activeObjects[i]->sprite.texture._rawImage,&(scene.activeObjects[i]->sprite.animation.source),&(scene.activeObjects[i]->sprite.animation.dest),0,NULL,SDL_FLIP_NONE);
