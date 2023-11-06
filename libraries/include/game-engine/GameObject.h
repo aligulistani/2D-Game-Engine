@@ -8,7 +8,7 @@ class GameObject{
     public:
         GameObject();
         GameObject(float x, float y);
-        GameObject(float x, float y, Animation t,bool physicsEnabled);
+        GameObject(float x, float y, Sprite t,bool physicsEnabled);
         GameObject(float x, float y,float w,float h);
         Sprite animation;
         void changeX(float x);

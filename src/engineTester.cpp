@@ -25,7 +25,7 @@ int main(int argc,char **argv){
 	scene = GameScene();
 
 	ninja_sprite = Sprite("./res/ninja/Idle.png", main_window.renderer);
-	// rectangle = GameObject(50.0f,100.0f,25,25);
+	rectangle = GameObject(50.0f,100.0f,ninja_sprite,false);
 
 	GameEngine::set_main_game_loop(game_loop,-1);
 	clean_up();
