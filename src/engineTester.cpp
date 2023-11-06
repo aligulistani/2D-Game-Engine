@@ -9,6 +9,7 @@ GameScene scene;
 Display main_window;
 
 GameObject rectangle;
+GameObject rectangle2;
 Sprite ninja_sprite;
 GameObject ninja;
 
@@ -24,8 +25,9 @@ int main(int argc,char **argv){
 	main_window = Display(window_title,WINDOW_WIDTH,WINDOW_HEIGHT);
 	scene = GameScene();
 
-	ninja_sprite = Sprite("./res/ninja/Attack1.png", main_window.renderer);
+	ninja_sprite = Sprite("./res/ninja/Death.png", main_window.renderer);
 	rectangle = GameObject(50.0f,100.0f,ninja_sprite,false);
+	rectangle2 = GameObject(500.0f,100.0f,ninja_sprite,false);
 
 	GameEngine::set_main_game_loop(game_loop,-1);
 	clean_up();
@@ -64,6 +66,8 @@ void game_loop(){
 	clock.startTimer();
 
 	scene.addObjectToScene(&rectangle);
+	scene.addObjectToScene(&rectangle2);
+
 
 	// rectangle.setPos({SDL_GetTicks()/50.0f,200.0f*sin(rectangle.pos[0]/5.0f)+WINDOW_HEIGHT/2});
 	float acceleration = force_gravity * clock.previousTime/1000.0f;
