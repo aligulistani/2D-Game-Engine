@@ -1,12 +1,16 @@
 #pragma once
-#include<game-engine/main.h>
+#include<SDL2/SDl.h>
+// #include<game-engine/main.h>
+#include<game-engine/Sprite.h>
+
+#include<vector>
 class GameObject{
     public:
         GameObject();
         GameObject(float x, float y);
         GameObject(float x, float y, Animation t,bool physicsEnabled);
         GameObject(float x, float y,float w,float h);
-        Animation animation;
+        Sprite animation;
         void changeX(float x);
         void changeY(float y);
         void setVel(std::vector<float> vel);

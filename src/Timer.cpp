@@ -1,6 +1,7 @@
 
-#include<game-engine/main.h>
-//#include<SDL2/SDL.h>
+// #include<game-engine/main.h>
+#include<SDL2/SDL.h>
+#include<game-engine/Timer.h>
 Timer::Timer(){};
 
 void Timer::startTimer(){
@@ -9,8 +10,8 @@ void Timer::startTimer(){
         this->currentTime = SDL_GetTicks();    
     }
     // std::cout << previousTime << std::endl;
-
 }
+
 float Timer::endTimer(){
     this->time_end = SDL_GetTicks() - time_now;// time when clock started, in milliseconds
     this->previousTime = 0;

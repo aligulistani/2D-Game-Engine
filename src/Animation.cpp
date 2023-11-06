@@ -1,19 +1,34 @@
-#include<game-engine/main.h>
-//#include<SDL2/SDL.h>
+// #include<game-engine/main.h>
+#include<SDL2/SDL.h>
+#include<game-engine/Animation.h>
+
+Animation::Animation(){
+    this->frame_count = 0;
+	// this->source.x = (w/frame_count) * this->animation_current_frame; // NEEDS TO BE UPDATED
+	// this->source.y = 0;
+	// this->source.w = w/this->frame_count;
+	// this->source.h = h;
+
+	// SDL_Rect dest;
+	// this->dest.x = 100; // TEMP VALUES, NEED TO BE VARIABLES
+	// this->dest.y = 100;
+	// this->dest.w = (w/this->frame_count) * 2;
+	// this->dest.h = h * 2;
+}
 
 Animation::Animation(const char* file_path, SDL_Renderer* renderer, int frames, int animation_speed){
 	SDL_Rect source;
     this->frame_count = frames;
-	this->source.x = (w/frame_count) * this->animation_current_frame; // NEEDS TO BE UPDATED
-	this->source.y = 0;
-	this->source.w = w/this->frame_count;
-	this->source.h = h;
+	// this->source.x = (w/frame_count) * this->animation_current_frame; // NEEDS TO BE UPDATED
+	// this->source.y = 0;
+	// this->source.w = w/this->frame_count;
+	// this->source.h = h;
 
-	SDL_Rect dest;
-	this->dest.x = 100; // TEMP VALUES, NEED TO BE VARIABLES
-	this->dest.y = 100;
-	this->dest.w = (w/this->frame_count) * 2;
-	this->dest.h = h * 2;
+	// SDL_Rect dest;
+	// this->dest.x = 100; // TEMP VALUES, NEED TO BE VARIABLES
+	// this->dest.y = 100;
+	// this->dest.w = (w/this->frame_count) * 2;
+	// this->dest.h = h * 2;
 
 	this->animation_speed = animation_speed; // Default Speed is 150 milliseconds
 };
