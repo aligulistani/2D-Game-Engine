@@ -1,7 +1,7 @@
 // #include<game-engine/main.h>
 #include<SDL2/SDL.h>
 #include<game-engine/Animation.h>
-
+#include<iostream>
 Texture temp_t;
 
 Animation::Animation(){

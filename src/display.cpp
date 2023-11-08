@@ -33,27 +33,20 @@ void Display::renderObjects(GameScene scene){
     SDL_SetRenderDrawColor(this->renderer,255, 255, 255, 255);
     for(int i=0;i<scene.activeObjects.size();i++){
         scene.activeObjects[i]->move({scene.activeObjects[i]->velocity[0],scene.activeObjects[i]->velocity[1]});
-        // SDL_RenderFillRectF(this->renderer,&scene.activeObjects[i]->rect);
+        SDL_RenderFillRectF(this->renderer,&scene.activeObjects[i]->rect);
         // scene.activeObjects[i]->animation.dest.x = (int)&scene.activeObjects[i]->pos[0];
         // scene.activeObjects[i]->animation.dest.y = (int)&scene.activeObjects[i]->pos[1];
-        scene.activeObjects[i]->sprite.animation.animate();
-        scene.activeObjects[i]->sprite.animation.dest.x =  scene.activeObjects[i]->pos[0] - scene.activeObjects[i]->sprite.animation.source.w; // TEMP VALUES, NEED TO BE VARIABLES
-        scene.activeObjects[i]->sprite.animation.dest.y = scene.activeObjects[i]->pos[1] - scene.activeObjects[i]->sprite.animation.source.h;
-        scene.activeObjects[i]->sprite.animation.dest.w = (scene.activeObjects[i]->sprite.texture.w/scene.activeObjects[i]->sprite.animation.frame_count) * 2;
-        scene.activeObjects[i]->sprite.animation.dest.h = scene.activeObjects[i]->sprite.texture.h * 2;
-        scene.activeObjects[i]->sprite.animation.animation_current_frame = 1;
-        std::cout << scene.activeObjects[i]->sprite.animation.source.w << std::endl;
-        std::cout << scene.activeObjects[i]->sprite.texture.h << std::endl;
+        // scene.activeObjects[i]->sprite.animation.animate();
+        // scene.activeObjects[i]->sprite.animation.dest.x =  scene.activeObjects[i]->pos[0] - scene.activeObjects[i]->sprite.animation.source.w; // TEMP VALUES, NEED TO BE VARIABLES
+        // scene.activeObjects[i]->sprite.animation.dest.y = scene.activeObjects[i]->pos[1] - scene.activeObjects[i]->sprite.animation.source.h;
+        // scene.activeObjects[i]->sprite.animation.dest.w = (scene.activeObjects[i]->sprite.texture.w/scene.activeObjects[i]->sprite.animation.frame_count) * 2;
+        // scene.activeObjects[i]->sprite.animation.dest.h = scene.activeObjects[i]->sprite.texture.h * 2;
+        // scene.activeObjects[i]->sprite.animation.animation_current_frame = 1;
 
         // Rendering Animations
-        SDL_RenderCopyEx(this->renderer,scene.activeObjects[i]->sprite.texture._rawImage,&(scene.activeObjects[i]->sprite.animation.source),&(scene.activeObjects[i]->sprite.animation.dest),0,NULL,SDL_FLIP_NONE);
+        // SDL_RenderCopyEx(this->renderer,scene.activeObjects[i]->sprite.texture._rawImage,&(scene.activeObjects[i]->sprite.animation.source),&(scene.activeObjects[i]->sprite.animation.dest),0,NULL,SDL_FLIP_NONE);
     }
 
-
-
-    for(int i=0;i<1280;i++){
-        SDL_RenderDrawPoint(this->renderer, i, 720-25);
-    }
     SDL_SetRenderDrawColor(this->renderer, 0, 0, 0, 255);
     // SDL_RenderCopyEx(this->renderer, e.getTexture()), &source, &dest, 0, NULL, NULL);
     SDL_RenderPresent(this->renderer);
