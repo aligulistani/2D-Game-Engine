@@ -6,7 +6,7 @@ Timer::Timer(){};
 
 void Timer::startTimer(){
     if(open){
-        this->previousTime = currentTime;
+        this->previousTime = currentTime - time_end;
         this->currentTime = SDL_GetTicks();    
     }
     // std::cout << previousTime << std::endl;

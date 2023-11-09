@@ -31,9 +31,11 @@ int main(int argc,char **argv){
 	main_window = Display(window_title,WINDOW_WIDTH,WINDOW_HEIGHT);
 	scene = GameScene();
 
-	square1 = GameObject(50.0f,100.0f,100.0f,100.0f);
-	square2 = GameObject(1050.0f,100.0f,100.0f,100.0f);
-
+	square1 = GameObject(200.0f,100.0f,100.0f,100.0f);
+	square2 = GameObject(1000.0f,100.0f,100.0f,100.0f);
+	
+	square1.setVel(std::vector<float>{0.5f,0.0f});
+	square2.setVel(std::vector<float>{-0.5f,0.0f});
 	GameEngine::set_main_game_loop(game_loop,-1);
 	clean_up();
 	return 0;		
@@ -45,9 +47,15 @@ float tick_time;
 
 Timer clock = Timer();
 
-float speed = 0.05f;
+float speed = 0.2f;
 
 float y = 0;
+
+const float friction = 0.0001f;
+const float air_drag = 0.0001f;
+
+const float gravity = 0.02f;
+
 
 void game_loop(){
 
@@ -61,11 +69,32 @@ void game_loop(){
 	tick_time = current_tick_t - previous_tick_t;
 	// std::cout << tick_time << std::endl; // How long every frame/tick takes in milliseconds
 
+	std::vector<GameObject> test = scene.checkCollisions();
 
-	square1.setVel(std::vector<float>{speed,0.0f});
-	square2.setVel(std::vector<float>{-speed,0.0f});
 
-	std::cout << square1.velocity[0] << std::endl;
+	if(square1.velocity[0] > 0.0f){
+		square1.velocity[0] -= friction;
+	}
+	if(square1.velocity[0] < 0.0f){
+		square1.velocity[0] += friction;
+	}
+
+	if(square2.velocity[0] > 0.0f){
+		square2.velocity[0] -= friction;
+	}
+	if(square2.velocity[0] < 0.0f){
+		square2.velocity[0] += friction;
+	}
+
+	std::cout <<  clock.previousTime/1000.0f << std::endl;
+	if(square1.pos[1]+square1.rect.h>=WINDOW_HEIGHT){
+		clock.endTimer();
+		clock.open = true;
+	}else{
+		square1.velocity[1] += gravity;
+		square2.velocity[1] += gravity;
+	}
+	// std::cout << square1.velocity[0] << std::endl;
 
 	main_window.update();
 	main_window.renderObjects(scene);

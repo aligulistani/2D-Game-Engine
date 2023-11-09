@@ -32,6 +32,9 @@ void Display::update(){
 void Display::renderObjects(GameScene scene){
     SDL_SetRenderDrawColor(this->renderer,255, 255, 255, 255);
     for(int i=0;i<scene.activeObjects.size();i++){
+        if(i==1){
+            SDL_SetRenderDrawColor(this->renderer,3, 255, 255, 255);
+        }
         scene.activeObjects[i]->move({scene.activeObjects[i]->velocity[0],scene.activeObjects[i]->velocity[1]});
         SDL_RenderFillRectF(this->renderer,&scene.activeObjects[i]->rect);
         // scene.activeObjects[i]->animation.dest.x = (int)&scene.activeObjects[i]->pos[0];
