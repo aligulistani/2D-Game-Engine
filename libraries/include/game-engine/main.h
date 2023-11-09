@@ -30,5 +30,5 @@ class GameEngine{
 public:
     GameEngine();
     static void initialize();
-    static void set_main_game_loop(void (*game_loop_func)(), int fps_cap);
+    static void set_main_game_loop(void (*game_loop_func)(), int fps_cap, EventHandler* handler);
 };

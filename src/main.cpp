@@ -12,17 +12,19 @@ void GameEngine::initialize(){
 
     // Initilize Handlers
 }
-void GameEngine::set_main_game_loop(void (*game_loop_func)(), int fps_cap){
+void GameEngine::set_main_game_loop(void (*game_loop_func)(), int fps_cap, EventHandler* handler){
     //Start a game loop
     bool open = 1;
-    EventHandler handler;
+    // EventHandler handler;
+
     while(open){
         // std::cout << handler.current_event.type << std::endl;
 
-        handler.pollEvents();
-        if(handler.current_event.type == SDL_QUIT){
+        handler->pollEvents();
+        if(handler->current_event.type == SDL_QUIT){
             break;
         }
+
         game_loop_func();
     }
 }
