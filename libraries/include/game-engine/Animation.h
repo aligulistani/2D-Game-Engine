@@ -3,13 +3,15 @@
 #include<game-engine/Texture.h>
 #include<vector>
 
+
 class Animation{
     public:
         Animation();
-        Animation(Texture t, SDL_Renderer* renderer, int frames, int animation_speed);
+        Animation(Texture t, SDL_Renderer* renderer, int frames);
         std::vector<SDL_Texture*> frames;
         SDL_Rect dest;
         SDL_Rect source;
+        Texture texture;
         const char* name;
         int frame_count;
         int animation_current_frame = 0; // Show first aimation frame as a default value

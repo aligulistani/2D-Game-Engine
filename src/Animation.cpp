@@ -1,30 +1,33 @@
 // #include<game-engine/main.h>
+#include <iostream>
 #include<SDL2/SDL.h>
 #include<game-engine/Animation.h>
-#include<iostream>
+#include <game-engine/Sprite.h>
 Texture temp_t;
 
 Animation::Animation(){
     this->frame_count = 0;
 }
 
-Animation::Animation(Texture t, SDL_Renderer* renderer, int frames, int animation_speed){
+Animation::Animation(Texture t, SDL_Renderer* renderer, int frames){
     this->frame_count = frames;
-	this->source.x = (t.w/frame_count) * this->animation_current_frame; // NEEDS TO BE UPDATED IN GAME LOOP
+	this->source.x = (t.w/this->frame_count) * this->animation_current_frame; // NEEDS TO BE UPDATED IN GAME LOOP
 	this->source.y = 0;
 	this->source.w = t.w/this->frame_count;
 	this->source.h = t.h;
-	temp_t = t;
+	texture = t;
 	this->dest.x = 100; // TEMP VALUES, NEED TO BE VARIABLES
 	this->dest.y = 100;
-	this->dest.w = (t.w/this->frame_count) * 2;
-	this->dest.h = t.h * 2;
+	this->dest.w = (t.w/this->frame_count);
+	this->dest.h = t.h;
 
 	this->animation_speed = animation_speed; // Default Speed is 150 milliseconds
 };
 void Animation::animate(){
     this->animation_current_frame = (SDL_GetTicks() / this->animation_speed) % this->frame_count;
-	this->source.x = (temp_t.w/frame_count) * this->animation_current_frame;
+	this->source.x = (texture.w/this->frame_count) * this->animation_current_frame;
+	std::cout << this->source.x << std::endl;
+
 }
 void Animation::setAnimationSpeed(int s){
 	// Sets the amount of time each frame of a sprite is displayed for

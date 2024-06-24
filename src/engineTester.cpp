@@ -1,8 +1,14 @@
 #include<game-engine/main.h>
 #include"imgui.h"
-#include"imgui_impl_sdlrenderer2.h"
-//#include"imgui_impl_opengl3.h"
-#include"imgui_impl_sdl2.h"
+
+/*
+ *
+ *
+ *
+ *
+ */
+
+
 void game_loop();
 
 // Window Settings
@@ -27,13 +33,12 @@ int main(int argc,char **argv){
 	main_window = Display(window_title,WINDOW_WIDTH,WINDOW_HEIGHT);
 	GameEngine::initialize(&main_window);
 
-
 	ninja_attack1 = Sprite("./res/ninja/Attack1.png",main_window.renderer.get(), 6);
 	ninja_attack2 = Sprite("./res/ninja/Attack2.png",main_window.renderer.get(), 6);
 	ninja_run = Sprite("./res/ninja/Run.png",main_window.renderer.get(), 8);
 	ninja_death = Sprite("./res/ninja/Death.png",main_window.renderer.get(), 6);
 	ninja_idle = Sprite("./res/ninja/Idle.png",main_window.renderer.get(), 8);
-	player = GameObject(200.0f, 100.0f, ninja_idle, true);
+	player = GameObject(200.0f, 100.0f, ninja_attack1, true);
 
 	GameEngine::set_main_game_loop(game_loop,-1, &handler);
 	return 0;
@@ -59,6 +64,7 @@ void game_loop(){
 	if(	ImGui::Button("Idle")) {
 		player.sprite = ninja_idle;
 	}
+	if(ImGui::DragInt("Speed (ms)", &player.sprite.animation.animation_speed, 1.0f, 1, 1000, "%d")){}
 	ImGui::End();
 
 	main_window.game_scene.addObjectToScene(&player);
