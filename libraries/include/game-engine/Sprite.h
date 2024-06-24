@@ -6,7 +6,7 @@
 #include<vector>
 class Sprite{
     public:
-        Sprite(const char* file_path,SDL_Renderer* r);
+        Sprite(const char* file_path,SDL_Renderer* r, int frames);
         Sprite();
         std::vector<Texture> textures;
         Texture texture;

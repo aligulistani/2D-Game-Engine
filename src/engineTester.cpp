@@ -17,45 +17,50 @@ EventHandler handler;
 Display main_window;
 
 GameObject player;
-Sprite ninja;
+Sprite ninja_attack1;
+Sprite ninja_attack2;
+Sprite ninja_run;
+Sprite ninja_death;
+Sprite ninja_idle;
 
 int main(int argc,char **argv){
-	GameEngine::initialize(&main_window);
 	main_window = Display(window_title,WINDOW_WIDTH,WINDOW_HEIGHT);
+	GameEngine::initialize(&main_window);
 
-	ninja = Sprite("./res/ninja/Idle.png",main_window.renderer.get());
-	player = GameObject(200.0f, 100.0f, ninja, true);
 
-	handler = EventHandler();
-	ImGui::CreateContext();
-	ImGui_ImplSDL2_InitForSDLRenderer(main_window.window, main_window.renderer.get());
-	ImGui_ImplSDLRenderer2_Init(main_window.renderer.get());
+	ninja_attack1 = Sprite("./res/ninja/Attack1.png",main_window.renderer.get(), 6);
+	ninja_attack2 = Sprite("./res/ninja/Attack2.png",main_window.renderer.get(), 6);
+	ninja_run = Sprite("./res/ninja/Run.png",main_window.renderer.get(), 8);
+	ninja_death = Sprite("./res/ninja/Death.png",main_window.renderer.get(), 6);
+	ninja_idle = Sprite("./res/ninja/Idle.png",main_window.renderer.get(), 8);
+	player = GameObject(200.0f, 100.0f, ninja_idle, true);
 
-	//ImGui::GetIO().DisplaySize = ImVec2(1280, 720);
 	GameEngine::set_main_game_loop(game_loop,-1, &handler);
 	return 0;
 }
-
-static float f = 0.0f;
-static int counter = 0;
-bool show_another_window = false;
-ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+bool a;
 void game_loop(){
 
-	ImGui_ImplSDL2_NewFrame();
-	ImGui_ImplSDLRenderer2_NewFrame();
-
-	ImGui::NewFrame();
 	ImGui::ShowDemoWindow();
+
+	ImGui::Begin("Animations");
+	if(	ImGui::Button("Attack 1")) {
+		player.sprite = ninja_attack1;
+	}
+	if(	ImGui::Button("Attack 2")) {
+		player.sprite = ninja_attack2;
+	}
+	if(	ImGui::Button("Run")) {
+		player.sprite = ninja_run;
+	}
+	if(	ImGui::Button("Death")) {
+		player.sprite = ninja_death;
+	}
+	if(	ImGui::Button("Idle")) {
+		player.sprite = ninja_idle;
+	}
+	ImGui::End();
+
 	main_window.game_scene.addObjectToScene(&player);
-
-
-
-	ImGui::Render();
-	SDL_SetRenderDrawColor(main_window.renderer.get(), (Uint8)(clear_color.x * 255), (Uint8)(clear_color.y * 255), (Uint8)(clear_color.z * 255), (Uint8)(clear_color.w * 255));
-	SDL_RenderClear(main_window.renderer.get());
-	main_window.renderer.renderObjects();
-	ImGui_ImplSDLRenderer2_RenderDrawData(ImGui::GetDrawData(), main_window.renderer.get());
-	SDL_RenderPresent(main_window.renderer.get());
 
 }

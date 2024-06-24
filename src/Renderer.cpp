@@ -17,11 +17,6 @@ void Renderer::update(GameScene* s){
 void Renderer::renderObjects(){
     for(int i=0;i<this->current_scene->activeObjects.size();i++){
         this->current_scene->activeObjects[i]->sprite.animation.animate();
-        this->current_scene->activeObjects[i]->sprite.animation.dest.x =  this->current_scene->activeObjects[i]->pos[0] - this->current_scene->activeObjects[i]->sprite.animation.source.w; // TEMP VALUES, NEED TO BE VARIABLES
-        this->current_scene->activeObjects[i]->sprite.animation.dest.y = this->current_scene->activeObjects[i]->pos[1] - this->current_scene->activeObjects[i]->sprite.animation.source.h;
-        this->current_scene->activeObjects[i]->sprite.animation.dest.w = (this->current_scene->activeObjects[i]->sprite.texture.w/this->current_scene->activeObjects[i]->sprite.animation.frame_count) * 2;
-        this->current_scene->activeObjects[i]->sprite.animation.dest.h = this->current_scene->activeObjects[i]->sprite.texture.h * 2;
-        this->current_scene->activeObjects[i]->sprite.animation.animation_current_frame = 1;
 
         SDL_RenderCopyEx(this->renderer,this->current_scene->activeObjects[i]->sprite.texture._rawImage,
             &(this->current_scene->activeObjects[i]->sprite.animation.source),
@@ -29,5 +24,4 @@ void Renderer::renderObjects(){
             0,NULL,SDL_FLIP_NONE);
     }
 
-    std::cout << this->current_scene->activeObjects.size() << std::endl;
 }
