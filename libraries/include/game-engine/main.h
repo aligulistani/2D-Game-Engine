@@ -11,6 +11,7 @@
 #include<game-engine/Animation.h>
 #include<game-engine/GameObject.h>
 #include<game-engine/Sprite.h>
+#include<game-engine/Renderer.h>
 
 #include<vector>
 #include<iostream>
@@ -24,11 +25,12 @@ class Animation;
 class Texture;
 class Sprite;
 class Timer;
+class Renderer;
 
 
 class GameEngine{
 public:
     GameEngine();
-    static void initialize();
+    static void initialize(Display* w);
     static void set_main_game_loop(void (*game_loop_func)(), int fps_cap, EventHandler* handler);
 };

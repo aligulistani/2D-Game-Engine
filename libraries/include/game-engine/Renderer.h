@@ -5,3 +5,22 @@ Rendering Class
     - 
 
 */
+
+
+#pragma once
+#include<game-engine/GameScene.h>
+
+class Renderer {
+public:
+    SDL_Renderer* renderer;
+    Renderer();
+    Renderer(SDL_Window* w, int index, int flags, GameScene* scene);
+    void cleanup();
+    void update(GameScene* s);
+    SDL_Renderer* get();
+    void renderObjects();
+    void clear();
+    int fps_cap = -1;
+    GameScene* current_scene;
+private:
+};

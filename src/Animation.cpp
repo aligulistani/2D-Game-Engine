@@ -6,16 +6,6 @@ Texture temp_t;
 
 Animation::Animation(){
     this->frame_count = 0;
-	// this->source.x = (w/frame_count) * this->animation_current_frame; // NEEDS TO BE UPDATED
-	// this->source.y = 0;
-	// this->source.w = w/this->frame_count;
-	// this->source.h = h;
-
-	// SDL_Rect dest;
-	// this->dest.x = 100; // TEMP VALUES, NEED TO BE VARIABLES
-	// this->dest.y = 100;
-	// this->dest.w = (w/this->frame_count) * 2;
-	// this->dest.h = h * 2;
 }
 
 Animation::Animation(Texture t, SDL_Renderer* renderer, int frames, int animation_speed){

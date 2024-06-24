@@ -1,10 +1,10 @@
 #pragma once
-#include<game-engine/main.h>
+#include <game-engine/Renderer.h>
 
 class Display {
 public:
 	Display();
-	Display(const char* title, int w, int h,SDL_Renderer* renderer, SDL_Window* window);
+	Display(const char* title, int w, int h,Renderer renderer, SDL_Window* window);
 	Display(const char* title, int w, int h);
     // SDL_Texture* loadTexture(const char* path);
     void cleanup();
@@ -14,7 +14,8 @@ public:
 	void windowResize(int w, int h);
 	// void render(Entity &e);
 	void clear();
-	SDL_Renderer* renderer;
+	Renderer renderer = Renderer();
+	GameScene game_scene;
 	SDL_Window* window;
 	int counter = 0;
 	int width;

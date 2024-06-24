@@ -17,6 +17,16 @@ GameObject::GameObject(float x, float y, Sprite t, bool physicsEnabled){
     this->sprite = t;
 };
 GameObject::GameObject(float x, float y,float w,float h){
+    this->type = 1;
+    this->w = w;
+    this->h = h;
+    this->pos = {x,y};
+    this->velocity = {0.0f,0.0f}; // Default velocity
+    this->rect = {this->pos[0],this->pos[1],w,h};
+};
+GameObject::GameObject(float x, float y,float w,float h, std::vector<int> c){
+    this->color = c;
+    this->type = 1;
     this->w = w;
     this->h = h;
     this->pos = {x,y};

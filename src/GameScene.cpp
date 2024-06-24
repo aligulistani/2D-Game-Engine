@@ -34,7 +34,7 @@ std::vector<GameObject> GameScene::checkCollisions(){
         if(this->activeObjects[i]->pos[1]+this->activeObjects[i]->rect.h > 720 || this->activeObjects[i]->pos[1] < 0){
             //COLLIDED WITH ONE OF THE TOP AND BOTTOM WALL
             if(this->activeObjects[i]->velocity[1] > 0.0f){
-                this->activeObjects[i]->velocity[1] = 0.0f;
+                this->activeObjects[i]->velocity[1] *= -0.75f;
             }
         }
 
