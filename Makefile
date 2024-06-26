@@ -1,7 +1,7 @@
 # Compiler and flags
 CC = g++
 CFLAGS = -I"./libraries/include/"
-LDFLAGS = -L"./libraries/lib" -lmingw32 -lSDL2main -lSDL2 -lSDL2_image
+LDFLAGS = -L"./libraries/lib/" -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lbox2d
 
 # Source and build directories
 SRC_DIR = src

@@ -52,6 +52,7 @@ void GameEngine::set_main_game_loop(void (*game_loop_func)(), int fps_cap, Event
 
         window->renderer.update(&window->game_scene);
         window->game_scene.clearScene();
+
         game_loop_func();
 
         ImGui::Render();

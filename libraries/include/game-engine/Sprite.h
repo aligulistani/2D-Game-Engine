@@ -12,4 +12,5 @@ class Sprite{
         Texture texture;
         Animation animation;
         SDL_Renderer* renderer;
+
 };

@@ -14,19 +14,33 @@ Animation::Animation(Texture t, SDL_Renderer* renderer, int frames){
 	this->source.x = (t.w/this->frame_count) * this->animation_current_frame; // NEEDS TO BE UPDATED IN GAME LOOP
 	this->source.y = 0;
 	this->source.w = t.w/this->frame_count;
-	this->source.h = t.h;
-	texture = t;
+	this->source.h = t.h/11;
+	this->texture = t;
 	this->dest.x = 100; // TEMP VALUES, NEED TO BE VARIABLES
 	this->dest.y = 100;
 	this->dest.w = (t.w/this->frame_count);
-	this->dest.h = t.h;
+	this->dest.h = t.h/11;
 
 	this->animation_speed = animation_speed; // Default Speed is 150 milliseconds
 };
+int c = 0;
+int animation_current_frame_2;
+bool p;
 void Animation::animate(){
+	if(this->animation_current_frame==5 && p) {
+		p = false;
+		if(c>9) {
+			c=0;
+		}
+		this->source.y = (this->texture.h/11) * c;
+		//std::cout << this->source.x * c << std::endl;
+		c++;
+	}else if(this->animation_current_frame!=5){
+		p = true;
+	}
     this->animation_current_frame = (SDL_GetTicks() / this->animation_speed) % this->frame_count;
 	this->source.x = (texture.w/this->frame_count) * this->animation_current_frame;
-	std::cout << this->source.x << std::endl;
+
 
 }
 void Animation::setAnimationSpeed(int s){

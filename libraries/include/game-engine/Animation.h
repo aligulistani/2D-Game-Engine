@@ -15,7 +15,7 @@ class Animation{
         const char* name;
         int frame_count;
         int animation_current_frame = 0; // Show first aimation frame as a default value
-        int animation_speed = 150; // Default is at 150 milliseconds
+        int animation_speed = 500; // Default is at 150 milliseconds
         void loadAnimations(const char* folder_path);
         void setAnimationSpeed(int s);
         void animateOnEvent();

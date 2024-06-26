@@ -4,8 +4,10 @@
 #include<game-engine/GameObject.h>
 // #include<game-engine/Animation.h>
 #include<vector>
+#include <Box2D/b2_fixture.h>
 GameObject::GameObject(){};
 GameObject::GameObject(float x, float y){
+    this->type = 1;
     this->pos = {x,y};
     this->velocity = {0.0f,0.0f}; // Default velocity
     this->rect = {x,y,50,50}; //Default Rectangle
@@ -16,13 +18,11 @@ GameObject::GameObject(float x, float y, Sprite t, bool physicsEnabled){
     this->rect = {this->pos[0],this->pos[1],w,h};
     this->sprite = t;
 };
-GameObject::GameObject(float x, float y,float w,float h){
+GameObject::GameObject(b2Body* body){
     this->type = 1;
-    this->w = w;
-    this->h = h;
-    this->pos = {x,y};
     this->velocity = {0.0f,0.0f}; // Default velocity
-    this->rect = {this->pos[0],this->pos[1],w,h};
+    this->body = body;
+    this->rect = {body->GetPosition().x,body->GetPosition().y,100,100};
 };
 GameObject::GameObject(float x, float y,float w,float h, std::vector<int> c){
     this->color = c;
@@ -53,5 +53,5 @@ void GameObject::move(std::vector<float> vec){
 }
 
 void GameObject::updateRect(){
-    this->rect = {this->pos[0],this->pos[1],w,h};
+    this->rect = {this->body->GetPosition().x,this->body->GetPosition().y,100,100};
 }
