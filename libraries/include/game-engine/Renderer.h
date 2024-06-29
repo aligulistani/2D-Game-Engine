@@ -12,7 +12,10 @@ Rendering Class
 
 class Renderer {
 public:
+    std::vector<GameObject*> activeObjects;
     SDL_Renderer* renderer;
+    int fps_cap = -1;
+    GameScene* current_scene;
     Renderer();
     Renderer(SDL_Window* w, int index, int flags, GameScene* scene);
     void cleanup();
@@ -20,7 +23,5 @@ public:
     SDL_Renderer* get();
     void renderObjects();
     void clear();
-    int fps_cap = -1;
-    GameScene* current_scene;
 private:
 };

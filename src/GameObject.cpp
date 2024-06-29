@@ -17,12 +17,16 @@ GameObject::GameObject(float x, float y, Sprite t, bool physicsEnabled){
     this->velocity = {0.0f,0.0f}; // Default velocity
     this->rect = {this->pos[0],this->pos[1],w,h};
     this->sprite = t;
+    if(physicsEnabled) {
+        // this->body = b2Body();
+    }
 };
-GameObject::GameObject(b2Body* body){
+GameObject::GameObject(PhysicsObject ph){
     this->type = 1;
     this->velocity = {0.0f,0.0f}; // Default velocity
-    this->body = body;
-    this->rect = {body->GetPosition().x,body->GetPosition().y,100,100};
+    this->body = ph.body;
+    this->rect = {ph.body->GetPosition().x,ph.body->GetPosition().y,100,100};
+    this->ph = ph;
 };
 GameObject::GameObject(float x, float y,float w,float h, std::vector<int> c){
     this->color = c;

@@ -1,8 +1,7 @@
 
 #include<game-engine/main.h>
-
+#include<game-engine/PhysicsObject.h>
 #include "imgui.h"
-#include "imgui_impl_opengl3.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_sdlrenderer2.h"
 
@@ -31,6 +30,7 @@ static int counter = 0;
 bool show_another_window = false;
 ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
+
 void GameEngine::set_main_game_loop(void (*game_loop_func)(), int fps_cap, EventHandler* handler){
     bool open = 1;
 
@@ -52,6 +52,7 @@ void GameEngine::set_main_game_loop(void (*game_loop_func)(), int fps_cap, Event
 
         window->renderer.update(&window->game_scene);
         window->game_scene.clearScene();
+
 
         game_loop_func();
 

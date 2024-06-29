@@ -40,8 +40,6 @@ void Animation::animate(){
 	}
     this->animation_current_frame = (SDL_GetTicks() / this->animation_speed) % this->frame_count;
 	this->source.x = (texture.w/this->frame_count) * this->animation_current_frame;
-
-
 }
 void Animation::setAnimationSpeed(int s){
 	// Sets the amount of time each frame of a sprite is displayed for

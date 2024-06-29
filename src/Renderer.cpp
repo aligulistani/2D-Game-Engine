@@ -31,5 +31,4 @@ void Renderer::renderObjects(){
                 0,NULL,SDL_FLIP_NONE);
         }
     }
-
 }

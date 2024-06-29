@@ -6,12 +6,14 @@
 #include <Box2D/b2_body.h>
 #include <Box2D/b2_polygon_shape.h>
 
+#include "PhysicsObject.h"
+
 class GameObject{
     public:
         GameObject();
         GameObject(float x, float y);
         GameObject(float x, float y, Sprite t,bool physicsEnabled);
-        GameObject(b2Body* body);
+        GameObject(PhysicsObject ph);
         GameObject(float x, float y,float w,float h, std::vector<int> c);
         std::vector<int> color;
         Sprite sprite;
@@ -28,6 +30,7 @@ class GameObject{
         float h;
         b2Body* body;
         SDL_FRect rect;
+        PhysicsObject ph;
        void updateRect();
        void move(std::vector<float> vec);
 };
