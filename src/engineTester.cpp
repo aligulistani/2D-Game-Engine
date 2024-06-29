@@ -27,7 +27,7 @@ Sprite blasphemous_sprite;
 
 b2BodyDef groundBodyDef;
 b2Body* body;
-b2Vec2 gravity(0.0f, 10.0f);
+b2Vec2 gravity(0.0f, 9.81f);
 b2World world(gravity);
 
 GameObject physics_square;
