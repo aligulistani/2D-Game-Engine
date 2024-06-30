@@ -18,4 +18,5 @@ float Timer::endTimer(){
     this->currentTime = 0;
     this->tick_time = 0;
     open = false;
+    return 0.0f;
 }
