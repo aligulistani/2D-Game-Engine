@@ -13,6 +13,7 @@ class GameObject{
         GameObject(float x, float y, Sprite t,bool physicsEnabled);
         GameObject(b2Body* body);
         GameObject(float x, float y,float w,float h, std::vector<int> c);
+        b2Body* GetBody();
         std::vector<int> color;
         Sprite sprite;
         void changeX(float x);

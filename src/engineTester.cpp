@@ -1,6 +1,9 @@
 #include<game-engine/main.h>
 #include"imgui.h"
 #include <Box2D/Box2D.h>
+#include <game-engine/Physics.h>
+
+
 /*
  *
  *
@@ -65,24 +68,34 @@ int main(int argc,char **argv){
 	player = GameObject(200.0f, 100.0f, blasphemous_sprite, true);
 	physics_square = GameObject(body);
 	physics_ground = GameObject(groundBody);
-
+	//Testing Physics class, method that applies a force at point on object, 0,0 is center of mass --> 0 Torque
+	b2Vec2 force = b2Vec2(500000000.0, 500000000.0);
+	//object.AppliedForce(force, point, body);
 	for (int32 i = 0; i < 60; ++i)
 	{
 		//world.Step(timeStep, velocityIterations, positionIterations);
 		b2Vec2 position = body->GetPosition();
 		float angle = body->GetAngle();
-		printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
+		//printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
 	}
 
 	GameEngine::set_main_game_loop(game_loop,-1, &handler);
 	return 0;
 }
+
 bool a;
 void game_loop(){
+	EventHandler DetectKey;
+	Physics object;
+	DetectKey.pollEvents();
+	if (DetectKey.keyPressed(SDL_SCANCODE_SPACE)){
+		cout<<"Pressed Spacebar"<<endl;
+		object.Jump(body);
+	}
 	ImGui::ShowDemoWindow();
 	b2Vec2 position = body->GetPosition();
 	float angle = body->GetAngle();
-	printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
+	//printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
 	world.Step(timeStep, velocityIterations, positionIterations);
 
 	ImGui::Begin("Animations");
@@ -100,7 +113,7 @@ void game_loop(){
 	// // }
 	// // if(	ImGui::Button("Idle")) {
 	// // 	player.sprite = ninja_idle;
-	// // }
+	// // } 
 	if(ImGui::DragInt("Speed (ms)", &player.sprite.animation.animation_speed, 1.0f, 1, 1000, "%d")){}
 	ImGui::End();
 	physics_square.updateRect();
