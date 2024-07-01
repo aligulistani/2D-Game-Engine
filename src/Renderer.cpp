@@ -1,6 +1,16 @@
 #include <iostream>
 #include<game-engine/Renderer.h>
 
+/*
+ * Features:
+ *      - Must be able to handle any time of gameobject for rendering
+ *
+ *
+ *
+ */
+
+
+
 Renderer::Renderer() = default;
 
 Renderer::Renderer(SDL_Window* w, int index, int flags, GameScene* scene) {

@@ -1,25 +1,27 @@
 
 #include<game-engine/main.h>
-#include<game-engine/PhysicsObject.h>
-#include "imgui.h"
-#include "imgui_impl_sdl2.h"
-#include "imgui_impl_sdlrenderer2.h"
 
 Display* window;
+
 GameEngine::GameEngine(){};
 void GameEngine::initialize(Display* w){
     //Initilialize SDL Festures
     window = w;
+
+    // Initalize SDL2 Library
+
     if(SDL_Init(SDL_INIT_EVERYTHING) == 0){
         std::cout<<"SDL Succesfully Initialized!"<<std::endl;
     }else{
         std::cout<<"SDL failed to Initialize!"<<std::endl;
     }
+
+    // Initialize ImGUI Library
     ImGui::CreateContext();
     ImGui_ImplSDL2_InitForSDLRenderer(window->window, window->renderer.get());
     ImGui_ImplSDLRenderer2_Init(window->renderer.get());
-
 }
+
 
 float previous_tick_t = 0;
 float current_tick_t = 0;
@@ -31,7 +33,7 @@ bool show_another_window = false;
 ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
 
-void GameEngine::set_main_game_loop(void (*game_loop_func)(), int fps_cap, EventHandler* handler){
+void GameEngine::start_main_game_loop(void (*game_loop_func)(), int fps_cap){
     bool open = 1;
 
     //Start a game loop
@@ -52,7 +54,6 @@ void GameEngine::set_main_game_loop(void (*game_loop_func)(), int fps_cap, Event
 
         window->renderer.update(&window->game_scene);
         window->game_scene.clearScene();
-
 
         game_loop_func();
 

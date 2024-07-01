@@ -1,11 +1,5 @@
-// #include<game-engine/main.h>
+#include<game-engine/main.h>
 
-// INCLUDES
-#include<SDL2/SDL.h>
-#include<game-engine/GameScene.h>
-#include<game-engine/display.h>
-#include<vector>
-#include <game-engine/Renderer.h>
 
 Display::Display(){
     //DEFAULT WINDOW SETTINGS

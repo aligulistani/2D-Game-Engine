@@ -21,13 +21,6 @@ GameObject::GameObject(float x, float y, Sprite t, bool physicsEnabled){
         // this->body = b2Body();
     }
 };
-GameObject::GameObject(PhysicsObject ph){
-    this->type = 1;
-    this->velocity = {0.0f,0.0f}; // Default velocity
-    this->body = ph.body;
-    this->rect = {ph.body->GetPosition().x,ph.body->GetPosition().y,100,100};
-    this->ph = ph;
-};
 GameObject::GameObject(float x, float y,float w,float h, std::vector<int> c){
     this->color = c;
     this->type = 1;

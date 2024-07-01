@@ -7,7 +7,7 @@
 class Animation{
     public:
         Animation();
-        Animation(Texture t, SDL_Renderer* renderer, int frames);
+        Animation(Texture t, int frames);
         std::vector<SDL_Texture*> frames;
         SDL_Rect dest;
         SDL_Rect source;

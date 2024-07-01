@@ -9,7 +9,7 @@ Animation::Animation(){
     this->frame_count = 0;
 }
 
-Animation::Animation(Texture t, SDL_Renderer* renderer, int frames){
+Animation::Animation(Texture t, int frames){
     this->frame_count = frames;
 	this->source.x = (t.w/this->frame_count) * this->animation_current_frame; // NEEDS TO BE UPDATED IN GAME LOOP
 	this->source.y = 0;
