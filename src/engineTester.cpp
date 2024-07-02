@@ -21,13 +21,11 @@ int main(int argc,char **argv){
 	player = GameObject(200.0f, 100.0f, blasphemous_sprite);
 
 	GameEngine::renderer.scene->addObjectToScene(&player);
-
 	GameEngine::start_main_game_loop(game_loop,max_fps);
 	return 0;
 }
 
 void game_loop(){
-
 	ImGui::ShowDemoWindow();
-
+	std::cout << "Hell!" << std::endl;
 }

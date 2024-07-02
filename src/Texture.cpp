@@ -1,7 +1,6 @@
 
 #include<game-engine/main.h>
 
-//#include<game-engine/Texture.h>
 
 Texture::Texture(){};
 Texture::Texture(const char* file_path){

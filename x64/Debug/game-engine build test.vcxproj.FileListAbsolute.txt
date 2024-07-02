@@ -1,0 +1,4 @@
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\game-engine build test\x64\Debug\game-engine build test.exe
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\game-engine build test\x64\Debug\game-engine build test.pdb
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\x64\Debug\Game-Engine.exe
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\x64\Debug\Game-Engine.pdb

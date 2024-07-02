@@ -1,7 +1,6 @@
 
-// #include<game-engine/main.h>
-#include<SDL2/SDL.h>
-#include<game-engine/Sprite.h>
+#include<game-engine/main.h>
+
 
 Sprite::Sprite(const char* file_path, int frames){
     this->texture = Texture(file_path);

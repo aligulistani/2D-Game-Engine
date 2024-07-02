@@ -17,10 +17,9 @@
 #include<game-engine/Renderer.h>
 #include<game-engine/display.h>
 #include<game-engine/eventHandler.h>
-#include<game-engine/GameEngine.h>
 #include<game-engine/Sprite.h>
 #include<game-engine/GameObject.h>
 #include<game-engine/Texture.h>
 #include<game-engine/Timer.h>
 #include<game-engine/Animation.h>
-
+#include<game-engine/GameEngine.h>

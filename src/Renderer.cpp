@@ -12,6 +12,7 @@
 
 
 Renderer::Renderer() {
+    // this->renderer = SDL_CreateRenderer(GameEngine::window->window,-1,0);
     this->scene = new GameScene();
 };
 

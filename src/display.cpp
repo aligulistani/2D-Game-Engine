@@ -6,7 +6,7 @@ Display::Display(const char* title, int w, int h){
     this->title = title;
     this->width = w;
     this->height = h;
-    this->window = SDL_CreateWindow(this->title,SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,w,h,SDL_WINDOW_SHOWN);
+    this->window = SDL_CreateWindow(this->title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
 }
 void Display::cleanup(){
 	SDL_DestroyWindow(this->window);

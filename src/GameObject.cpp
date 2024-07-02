@@ -1,10 +1,6 @@
 
-// #include<game-engine/main.h>
-#include<SDL2/SDL.h>
-#include<game-engine/GameObject.h>
-// #include<game-engine/Animation.h>
-#include<vector>
-#include <Box2D/b2_fixture.h>
+#include<game-engine/main.h>
+
 GameObject::GameObject(){};
 GameObject::GameObject(float x, float y){ this->pos = {x,y};};
 GameObject::GameObject(float x, float y, Sprite t){

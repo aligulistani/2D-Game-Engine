@@ -2,7 +2,7 @@
 
 #include "display.h"
 #include "eventHandler.h"
-
+#include "Renderer.h"
 class GameEngine{
     public:
         GameEngine();

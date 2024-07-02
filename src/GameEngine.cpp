@@ -2,28 +2,28 @@
 
 
 GameEngine::GameEngine(){};
+Renderer GameEngine::renderer;
+Display* GameEngine::window;
+EventHandler GameEngine::handler;
 void GameEngine::initialize(Display* w){
 
+    // INIT GAME ENGINE CLASSES
+    GameEngine::window = w;
+    renderer = Renderer();
+    renderer.renderer = SDL_CreateRenderer(GameEngine::window->window,-1,0);
+    //GameEngine::handler = EventHandler();
 
     // Initalize SDL2 Library
-    if(SDL_Init(SDL_INIT_EVERYTHING) == 0){
+    if(SDL_Init(SDL_INIT_EVENTS|SDL_INIT_VIDEO) == 0 ){
         std::cout<<"SDL Succesfully Initialized!"<<std::endl;
     }else{
         std::cout<<"SDL failed to Initialize!"<<std::endl;
     }
 
-
     // Initialize ImGUI Library
     ImGui::CreateContext();
     ImGui_ImplSDL2_InitForSDLRenderer(w->window, GameEngine::renderer.get());
     ImGui_ImplSDLRenderer2_Init(GameEngine::renderer.get());
-
-    // INIT GAME ENGINE CLASSES
-
-    GameEngine::renderer = Renderer();
-    GameEngine::window = w;
-    GameEngine::handler = EventHandler();
-
 }
 
 void GameEngine::Shutdown() {
