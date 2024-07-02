@@ -1,7 +1,4 @@
 #pragma once
-// #include<game-engine/main.h>
-
-#include "main.h"
 
 class Texture{
     public:

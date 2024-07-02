@@ -1,5 +1,5 @@
 # Compiler and flags
-CC = g++
+CC = g++ -g -Xlinker pdb=main.pdb
 CFLAGS = -I"./libraries/include/"
 LDFLAGS = -L"./libraries/lib/" -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lbox2d
 

@@ -1,25 +1,36 @@
-
 #include<game-engine/main.h>
 
-Display* window;
 
 GameEngine::GameEngine(){};
 void GameEngine::initialize(Display* w){
-    //Initilialize SDL Festures
-    window = w;
+
 
     // Initalize SDL2 Library
-
     if(SDL_Init(SDL_INIT_EVERYTHING) == 0){
         std::cout<<"SDL Succesfully Initialized!"<<std::endl;
     }else{
         std::cout<<"SDL failed to Initialize!"<<std::endl;
     }
 
+
     // Initialize ImGUI Library
     ImGui::CreateContext();
-    ImGui_ImplSDL2_InitForSDLRenderer(window->window, window->renderer.get());
-    ImGui_ImplSDLRenderer2_Init(window->renderer.get());
+    ImGui_ImplSDL2_InitForSDLRenderer(w->window, GameEngine::renderer.get());
+    ImGui_ImplSDLRenderer2_Init(GameEngine::renderer.get());
+
+    // INIT GAME ENGINE CLASSES
+
+    GameEngine::renderer = Renderer();
+    GameEngine::window = w;
+    GameEngine::handler = EventHandler();
+
+}
+
+void GameEngine::Shutdown() {
+    ImGui_ImplSDLRenderer2_Shutdown();
+    ImGui_ImplSDL2_Shutdown();
+    ImGui::DestroyContext();
+    window->cleanup();
 }
 
 
@@ -38,41 +49,28 @@ void GameEngine::start_main_game_loop(void (*game_loop_func)(), int fps_cap){
 
     //Start a game loop
     while(open){
-        handler->pollEvents();
+        // Event Handling
+        handler.pollEvents();
+        if(handler.current_event.type == SDL_QUIT){break;} // Close the window SDL_QUIT event is called
+        ImGui_ImplSDL2_ProcessEvent(&handler.current_event);
 
-        ImGui_ImplSDL2_ProcessEvent(&handler->current_event); // Forward your event to backend
+        // ImGUI & SDL Function Calls
         ImGui_ImplSDL2_NewFrame();
         ImGui_ImplSDLRenderer2_NewFrame();
         ImGui::NewFrame();
 
-        if(handler->current_event.type == SDL_QUIT){
-            break;
-        }
+        // Delta Time Calculations
         previous_tick_t = current_tick_t;
         current_tick_t = SDL_GetTicks();
         tick_time = current_tick_t - previous_tick_t;
 
-        window->renderer.update(&window->game_scene);
-        window->game_scene.clearScene();
 
+        // Call the Logic Loop
         game_loop_func();
 
-        ImGui::Render();
-        SDL_SetRenderDrawColor(window->renderer.get(), (Uint8)(clear_color.x * 255), (Uint8)(clear_color.y * 255), (Uint8)(clear_color.z * 255), (Uint8)(clear_color.w * 255));
-        SDL_RenderClear(window->renderer.get());
-        window->renderer.renderObjects();
-        ImGui_ImplSDLRenderer2_RenderDrawData(ImGui::GetDrawData(), window->renderer.get());
-        SDL_RenderPresent(window->renderer.get());
-
-
-        //window->update();
-       // window->renderObjects(window->game_scene);
-        //window->game_scene.clearScene();
+        // End of Tick Render Calls
+        renderer.draw();
 
     }
-    ImGui_ImplSDLRenderer2_Shutdown();
-    ImGui_ImplSDL2_Shutdown();
-    ImGui::DestroyContext();
-    window->cleanup();
-
+    Shutdown();
 }

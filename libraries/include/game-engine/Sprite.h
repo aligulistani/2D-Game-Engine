@@ -1,9 +1,6 @@
 #pragma once
-#include<game-engine/main.h>
-#include<SDL2/SDl.h>
-//#include<game-engine/Texture.h>
-//#include<game-engine/Animation.h>
-#include<vector>
+#include"Texture.h"
+#include"Animation.h"
 
 class Sprite{
     public:
@@ -12,5 +9,4 @@ class Sprite{
         Texture texture;
         Animation animation;
         SDL_Renderer* renderer;
-
 };

@@ -6,17 +6,14 @@ class GameObject{
     public:
         GameObject();
         GameObject(float x, float y);
-        GameObject(float x, float y, Sprite t,bool physicsEnabled);
-        GameObject(float x, float y,float w,float h, std::vector<int> c);
+        GameObject(float x, float y, Sprite t);
 
         b2Vec3 color;
         b2Vec2 velocity;
         b2Vec2 pos;
 
-        void changeX(float x);
-        void changeY(float y);
-        void setVel(std::vector<float> vel);
-        void setPos(std::vector<float> pos);
-        void move(std::vector<float> vec);
+        Sprite sprite; // temp variable until an Entity class is made
+
+        void setPos(b2Vec2 pos);
         void updateRect();
 };

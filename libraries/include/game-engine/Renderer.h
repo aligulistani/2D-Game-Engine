@@ -8,20 +8,21 @@ Rendering Class
 
 
 #pragma once
+#include<SDL2/SDL.h>
 #include<game-engine/GameScene.h>
 
 class Renderer {
 public:
-    std::vector<GameObject*> activeObjects;
     SDL_Renderer* renderer;
     int fps_cap = -1;
-    GameScene* current_scene;
+    GameScene* scene;
     Renderer();
     Renderer(SDL_Window* w, int index, int flags, GameScene* scene);
+    void draw();
     void cleanup();
     void update(GameScene* s);
     SDL_Renderer* get();
-    void renderObjects();
+    void renderGameSceneObjects();
     void clear();
 private:
 };
