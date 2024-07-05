@@ -5,13 +5,19 @@ GameEngine::GameEngine(){};
 Renderer GameEngine::renderer;
 Display* GameEngine::window;
 EventHandler GameEngine::handler;
+PhysicsWorld GameEngine::main_physics_world;
+
+b2Vec2 default_gravity(0.0f, 10.0f);
+b2World c_world(default_gravity);
+
 void GameEngine::initialize(Display* w){
 
     // INIT GAME ENGINE CLASSES
     GameEngine::window = w;
     renderer = Renderer();
     renderer.renderer = SDL_CreateRenderer(GameEngine::window->window,-1,0);
-    //GameEngine::handler = EventHandler();
+    GameEngine::handler = EventHandler();
+    GameEngine::main_physics_world.physics_world = &c_world;
 
     // Initalize SDL2 Library
     if(SDL_Init(SDL_INIT_EVENTS|SDL_INIT_VIDEO) == 0 ){
@@ -58,6 +64,9 @@ void GameEngine::start_main_game_loop(void (*game_loop_func)(), int fps_cap){
         ImGui_ImplSDL2_NewFrame();
         ImGui_ImplSDLRenderer2_NewFrame();
         ImGui::NewFrame();
+
+        //Physics Handling for every tick
+        GameEngine::main_physics_world.NextStep();
 
         // Delta Time Calculations
         previous_tick_t = current_tick_t;

@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Physics.cpp" />
+    <ClCompile Include="src\SpriteSheetCollection.cpp" />
     <ClCompile Include="src\Animation.cpp" />
     <ClCompile Include="src\display.cpp" />
     <ClCompile Include="src\engineTester.cpp" />
@@ -262,6 +264,8 @@
     <ClInclude Include="libraries\include\SDL3\SDL_version.h" />
     <ClInclude Include="libraries\include\SDL3\SDL_video.h" />
     <ClInclude Include="libraries\include\SDL3\SDL_vulkan.h" />
+    <ClInclude Include="libraries\include\game-engine\SpriteSheetCollection.h" />
+    <ClInclude Include="libraries\include\game-engine\Physics.h" />
     <ClInclude Include="src\imgui\imconfig.h" />
     <ClInclude Include="src\imgui\imgui.h" />
     <ClInclude Include="src\imgui\imgui_internal.h" />
@@ -390,6 +394,8 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

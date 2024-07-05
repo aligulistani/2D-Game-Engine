@@ -12,12 +12,12 @@ Animation::Animation(Texture t, int frames){
 	this->source.x = (t.w/this->frame_count) * this->animation_current_frame; // NEEDS TO BE UPDATED IN GAME LOOP
 	this->source.y = 0;
 	this->source.w = t.w/this->frame_count;
-	this->source.h = t.h/11;
+	this->source.h = t.h;
 	this->texture = t;
 	this->dest.x = 100; // TEMP VALUES, NEED TO BE VARIABLES
 	this->dest.y = 100;
 	this->dest.w = (t.w/this->frame_count);
-	this->dest.h = t.h/11;
+	this->dest.h = t.h;
 
 	this->animation_speed = animation_speed; // Default Speed is 150 milliseconds
 };

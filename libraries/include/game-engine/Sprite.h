@@ -4,9 +4,9 @@
 
 class Sprite{
     public:
-        Sprite(const char* file_path, int frames);
+        Sprite(const char* file_path, int frames, const char* i);
         Sprite();
+        const char* identifer;
         Texture texture;
         Animation animation;
-        SDL_Renderer* renderer;
 };

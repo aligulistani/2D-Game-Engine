@@ -12,4 +12,5 @@ class GameEngine{
         static Renderer renderer;
         static Display* window;
         static EventHandler handler;
+        static PhysicsWorld main_physics_world;
 };

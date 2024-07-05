@@ -11,8 +11,12 @@
 
 #include<vector>
 #include<iostream>
+#include<filesystem>
 #include<string>
 
+#include<game-engine/SpriteSheetCollection.h>
+#include<game-engine/Physics.h>
+#include<game-engine/Entity.h>
 #include<game-engine/GameScene.h>
 #include<game-engine/Renderer.h>
 #include<game-engine/display.h>
@@ -23,3 +27,4 @@
 #include<game-engine/Timer.h>
 #include<game-engine/Animation.h>
 #include<game-engine/GameEngine.h>
+
