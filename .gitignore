@@ -1,3 +1,5 @@
 /external/
 /x64/
 /.vs/
+/.idea/
+/res/
