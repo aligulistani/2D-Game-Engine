@@ -4,9 +4,9 @@
 
 class Sprite{
     public:
-        Sprite(const char* file_path, int frames, const char* i);
+        Sprite(const char* file_path, const char* i);
         Sprite();
         const char* identifer;
+        SDL_RendererFlip flip = SDL_FLIP_NONE;
         Texture texture;
-        Animation animation;
 };

@@ -34,17 +34,21 @@ void Renderer::renderGameSceneObjects(){
         GameObject* c = this->scene->activeObjects[i];
 
         const SDL_FRect t_rect{
-            c->p.body->GetPosition().x, c->p.body->GetPosition().y,
+            c->p.body->GetPosition().x - c->p.hx,
+            c->p.body->GetPosition().y - c->p.hy,
              c->p.hx * 2,
              c->p.hy * 2
         };
 
-        //SDL_SetRenderDrawColor(GameEngine::renderer.get(), 184, 146, 42, 255);
-        //SDL_RenderFillRectF(GameEngine::renderer.get(),&t_rect);
-        //this->scene->activeObjects[i]->sprite.animation.animate();
+        
+
         SDL_RenderCopyExF(this->renderer, this->scene->activeObjects[i]->sprite.texture._rawImage,
-            &(this->scene->activeObjects[i]->sprite.animation.source),
+            this->scene->activeObjects[i]->animator.getCurrentDrawFrame(),
             &t_rect,
-            (c->p.body->GetAngle()) * (180 / 3.14), NULL, SDL_FLIP_NONE);
+            (c->p.body->GetAngle()) * (180 / 3.14), NULL, c->animator.c_anim.sprite.flip);
+        //SDL_RenderCopyExF(this->renderer, this->scene->activeObjects[i]->sprite.texture._rawImage,
+        //    &(this->scene->activeObjects[i]->sprite.animation.source),
+        //    &t_rect,
+        //    (c->p.body->GetAngle()) * (180 / 3.14), NULL, SDL_FLIP_NONE);
     }
 }

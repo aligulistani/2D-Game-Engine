@@ -6,4 +6,5 @@ class EventHandler{
         EventHandler();
         bool pollEvents(); // Must be called every tick!
         bool keyPressed(Uint8 scancode);
+        bool MousePressed(Uint8 index);
 };

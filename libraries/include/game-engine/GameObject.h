@@ -16,9 +16,11 @@ class GameObject{
         b2Vec2 pos;
 
         PhysicsComponent p;
+        AnimationController animator;
         Sprite sprite; // temp variable until an Entity class is made
 
         void InitializeAsBasicBox(b2Vec2 size);
         void setPos(b2Vec2 pos);
         void updateRect();
+        void Destroy();
 };

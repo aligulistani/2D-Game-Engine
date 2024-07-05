@@ -16,3 +16,12 @@ bool EventHandler::keyPressed(Uint8 scancode){
         return false;
     }
 }
+
+bool EventHandler::MousePressed(Uint8 index) {
+    if (this->current_event.button.button == index) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
