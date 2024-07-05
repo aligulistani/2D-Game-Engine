@@ -121,6 +121,13 @@ C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\incl
 C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(9): message : see declaration of 'Animation::Animation'
 C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C3646: 'sprite': unknown override specifier
 C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_sdl2.cpp
+  imgui_impl_sdlrenderer2.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
   Renderer.cpp
 C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2061: syntax error: identifier 'Sprite'
 C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2535: 'Animation::Animation(void)': member function already defined or declared
