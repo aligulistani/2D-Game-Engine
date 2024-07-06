@@ -14,8 +14,8 @@ struct PhysicsComponent
 	b2PolygonShape shape;
 	b2FixtureDef fixture_def;
 
-	float hx, hy;
 	b2Body* body;
 	b2Fixture* fixture;
+	void changeSizeofPhysicsBox(b2Vec2 size);
 };
 

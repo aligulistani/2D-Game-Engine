@@ -1,5 +1,4 @@
 #pragma once
-#include<game-engine/Texture.h>
 #include<game-engine/Sprite.h>
 #include<vector>
 
@@ -18,15 +17,15 @@ class Animation{
         int animation_speed = 150; // Default is at 150 milliseconds
         void setAnimationSpeed(int s);
         void animate();
-
 };
 
 struct AnimationController {
+    float hx, hy;
+    SDL_RendererFlip flip_state;
     AnimationController();
-    Animation c_anim; // The current animation that is played on screen
-    std::vector<Animation*> animations;
-    void runAnimation(const char* i, int cycles);// Runs a certain animation for a given cycle count, if given NULL then it will play the animation indefinitely
+    Animation* c_anim; // The current animation that is played on screen
+    std::vector<Animation> animations;
+    void runAnimation(const char* id, int cycles);// Runs a certain animation for a given cycle count, if given NULL then it will play the animation indefinitely
     SDL_Rect* getCurrentDrawFrame();
-private:
     void nextFrame();
 };

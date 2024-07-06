@@ -1,7 +1,6 @@
 #pragma once
 #include "GameObject.h"
 
-
 // Container Class
 class GameScene{
     public:

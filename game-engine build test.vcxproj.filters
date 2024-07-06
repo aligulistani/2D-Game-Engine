@@ -78,6 +78,9 @@
     <ClCompile Include="src\Physics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libraries\include\box2d\b2_api.h">
@@ -768,6 +771,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="libraries\include\game-engine\Physics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\include\game-engine\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,32 +1,54 @@
 #include<game-engine/main.h>
 
 
-void AnimationController::runAnimation(const char* i, int cycles){
-	for (int i = 0; i < this->animations.size(); i++) {
-		if (this->animations[i].sprite.identifer == i) {
-			this->c_anim = this->animations[i];
+AnimationController::AnimationController() {
+	this->c_anim = new Animation();
+	this->c_anim->animation_speed = 150;
+	this->c_anim->frame_count = 1;
+}
+
+int cycle_counter = 0;
+
+void AnimationController::runAnimation(const char* id, int cycles){
+	nextFrame();
+	Animation* last_anim = c_anim;
+
+
+	if (this->c_anim->sprite.identifer != id) {//Check to see if the id of the given animation is the same one that is already being played
+		for (int i = 0; i < this->animations.size(); i++) {
+			if (this->animations[i].sprite.identifer == id) {
+				this->c_anim = &this->animations[i];
+			}
 		}
 	}
+
+	if (cycles > 0) {
+		//Force play one animation
+		
+	}
+
 }
 
 void AnimationController::nextFrame() {
-	this->c_anim.animation_current_frame = (SDL_GetTicks() / this->c_anim.animation_speed) % this->c_anim.frame_count;
-	this->c_anim.src.x = (c_anim.t.w / this->c_anim.frame_count) * this->c_anim.animation_current_frame;
+	this->c_anim->animation_current_frame = (SDL_GetTicks() / this->c_anim->animation_speed) % this->c_anim->frame_count;
+	this->c_anim->src.x = (c_anim->t.w / this->c_anim->frame_count) * this->c_anim->animation_current_frame;
 }
 SDL_Rect* AnimationController::getCurrentDrawFrame() {
-	nextFrame();
-	return &this->c_anim.src;
+	return &this->c_anim->src;
 }
 
 Texture temp_t;
 
 Animation::Animation(){
-    this->frame_count = 0;
+    this->frame_count = 1;
+	this->sprite = Sprite("./res/missing.png", "missing");
 }
 
 Animation::Animation(Sprite s, int frames){
     this->frame_count = frames;
 	this->t = s.texture;
+	
+	this->sprite = s;
 
 	this->src.x = 0;
 	this->src.y = 0;
@@ -37,7 +59,6 @@ Animation::Animation(Sprite s, int frames){
 };
 
 int c = 0;
-int animation_current_frame_2;
 bool p;
 
 void Animation::animate(){

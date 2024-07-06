@@ -3,6 +3,7 @@
 #include "display.h"
 #include "eventHandler.h"
 #include "Renderer.h"
+#include "Camera.h"
 class GameEngine{
     public:
         GameEngine();
@@ -13,4 +14,5 @@ class GameEngine{
         static Display* window;
         static EventHandler handler;
         static PhysicsWorld main_physics_world;
+        static Camera main_camera;
 };

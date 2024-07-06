@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="src\Physics.cpp" />
     <ClCompile Include="src\SpriteSheetCollection.cpp" />
     <ClCompile Include="src\Animation.cpp" />
@@ -42,6 +43,7 @@
     <ClCompile Include="src\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="libraries\include\game-engine\Camera.h" />
     <ClInclude Include="libraries\include\box2d\b2_api.h" />
     <ClInclude Include="libraries\include\box2d\b2_block_allocator.h" />
     <ClInclude Include="libraries\include\box2d\b2_body.h" />

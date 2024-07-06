@@ -26,5 +26,6 @@
 #include<game-engine/Texture.h>
 #include<game-engine/Timer.h>
 #include<game-engine/Animation.h>
+#include<game-engine/Camera.h>
 #include<game-engine/GameEngine.h>
 

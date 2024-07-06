@@ -1,153 +1,24 @@
-﻿  Physics.cpp
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2061: syntax error: identifier 'Sprite'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2535: 'Animation::Animation(void)': member function already defined or declared
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(9): message : see declaration of 'Animation::Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C3646: 'sprite': unknown override specifier
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-  SpriteSheetCollection.cpp
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2061: syntax error: identifier 'Sprite'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2535: 'Animation::Animation(void)': member function already defined or declared
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(9): message : see declaration of 'Animation::Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C3646: 'sprite': unknown override specifier
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\SpriteSheetCollection.cpp(7,115): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'Sprite'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\SpriteSheetCollection.cpp(7,115): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+﻿  Camera.cpp
   Animation.cpp
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2061: syntax error: identifier 'Sprite'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2535: 'Animation::Animation(void)': member function already defined or declared
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(9): message : see declaration of 'Animation::Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C3646: 'sprite': unknown override specifier
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\Animation.cpp(7,38): error C2679: binary '=': no operator found which takes a right-hand operand of type '_Ty' (or there is no acceptable conversion)
-          with
-          [
-              _Ty=Animation *
-          ]
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(22,1): message : could be 'Animation &Animation::operator =(Animation &&)'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(22,1): message : or       'Animation &Animation::operator =(const Animation &)'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\Animation.cpp(7,38): message : while trying to match the argument list '(Animation, _Ty)'
-          with
-          [
-              _Ty=Animation *
-          ]
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\Animation.cpp(27,43): error C2511: 'Animation::Animation(Sprite,int)': overloaded member function not found in 'Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(7): message : see declaration of 'Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\Animation.cpp(28,5): error C2671: 'Animation::{ctor}': static member functions do not have 'this' pointers
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\Animation.cpp(29,2): error C2671: 'Animation::{ctor}': static member functions do not have 'this' pointers
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\Animation.cpp(31,2): error C2671: 'Animation::{ctor}': static member functions do not have 'this' pointers
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\Animation.cpp(32,2): error C2671: 'Animation::{ctor}': static member functions do not have 'this' pointers
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\Animation.cpp(33,2): error C2671: 'Animation::{ctor}': static member functions do not have 'this' pointers
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\Animation.cpp(33,20): error C2671: 'Animation::{ctor}': static member functions do not have 'this' pointers
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\Animation.cpp(34,2): error C2671: 'Animation::{ctor}': static member functions do not have 'this' pointers
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\Animation.cpp(36,2): error C2671: 'Animation::{ctor}': static member functions do not have 'this' pointers
-  display.cpp
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2061: syntax error: identifier 'Sprite'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2535: 'Animation::Animation(void)': member function already defined or declared
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(9): message : see declaration of 'Animation::Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C3646: 'sprite': unknown override specifier
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-  engineTester.cpp
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2061: syntax error: identifier 'Sprite'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2535: 'Animation::Animation(void)': member function already defined or declared
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(9): message : see declaration of 'Animation::Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C3646: 'sprite': unknown override specifier
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(43,66): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(43,66): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(45,72): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(45,72): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(46,81): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(46,81): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(47,80): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(47,80): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(48,74): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(48,74): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(49,71): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(49,71): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(50,71): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(50,71): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(51,69): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(51,69): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(52,81): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(52,81): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(65,84): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(65,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(73,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(75,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(76,53): error C2664: 'void std::vector<Animation *,std::allocator<Animation *>>::push_back(const _Ty &)': cannot convert argument 1 from 'Animation' to 'const _Ty &'
-          with
-          [
-              _Ty=Animation *
-          ]
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(76,53): message : Reason: cannot convert from 'Animation' to 'const _Ty'
-          with
-          [
-              _Ty=Animation *
-          ]
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(76,40): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\vector(716,10): message : see declaration of 'std::vector<Animation *,std::allocator<Animation *>>::push_back'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(98,118): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(98,74): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
-  entity.cpp
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2061: syntax error: identifier 'Sprite'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2535: 'Animation::Animation(void)': member function already defined or declared
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(9): message : see declaration of 'Animation::Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C3646: 'sprite': unknown override specifier
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
   EventHandler.cpp
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2061: syntax error: identifier 'Sprite'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2535: 'Animation::Animation(void)': member function already defined or declared
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(9): message : see declaration of 'Animation::Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C3646: 'sprite': unknown override specifier
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
   GameEngine.cpp
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2061: syntax error: identifier 'Sprite'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2535: 'Animation::Animation(void)': member function already defined or declared
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(9): message : see declaration of 'Animation::Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C3646: 'sprite': unknown override specifier
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\GameEngine.cpp(73,38): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\GameEngine.cpp(75,38): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
   GameObject.cpp
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2061: syntax error: identifier 'Sprite'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2535: 'Animation::Animation(void)': member function already defined or declared
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(9): message : see declaration of 'Animation::Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C3646: 'sprite': unknown override specifier
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\GameObject.cpp(17,84): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\GameObject.cpp(17,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\GameObject.cpp(11,84): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\GameObject.cpp(11,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   GameScene.cpp
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2061: syntax error: identifier 'Sprite'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2535: 'Animation::Animation(void)': member function already defined or declared
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(9): message : see declaration of 'Animation::Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C3646: 'sprite': unknown override specifier
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-  imgui.cpp
-  imgui_demo.cpp
-  imgui_draw.cpp
-  imgui_impl_sdl2.cpp
-  imgui_impl_sdlrenderer2.cpp
-  imgui_tables.cpp
-  imgui_widgets.cpp
+  Physics.cpp
   Renderer.cpp
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2061: syntax error: identifier 'Sprite'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2535: 'Animation::Animation(void)': member function already defined or declared
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(9): message : see declaration of 'Animation::Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C3646: 'sprite': unknown override specifier
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\Renderer.cpp(48,78): error C2039: 'sprite': is not a member of 'Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(7): message : see declaration of 'Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\Renderer.cpp(45,9): error C2660: 'SDL_RenderCopyExF': function does not take 6 arguments
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\SDL2\SDL_render.h(1616,29): message : see declaration of 'SDL_RenderCopyExF'
   Sprite.cpp
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2061: syntax error: identifier 'Sprite'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2535: 'Animation::Animation(void)': member function already defined or declared
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(9): message : see declaration of 'Animation::Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C3646: 'sprite': unknown override specifier
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  SpriteSheetCollection.cpp
   Texture.cpp
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2061: syntax error: identifier 'Sprite'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(10,18): error C2535: 'Animation::Animation(void)': member function already defined or declared
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(9): message : see declaration of 'Animation::Animation'
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C3646: 'sprite': unknown override specifier
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\libraries\include\game-engine\Animation.h(13,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  display.cpp
+  engineTester.cpp
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(41,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(43,51): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(63,62): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(64,59): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(139,85): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(139,79): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating Code...
+  game-engine build test.vcxproj -> C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\x64\Debug\Game-Engine.exe

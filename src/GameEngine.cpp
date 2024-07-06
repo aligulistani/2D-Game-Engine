@@ -6,6 +6,7 @@ Renderer GameEngine::renderer;
 Display* GameEngine::window;
 EventHandler GameEngine::handler;
 PhysicsWorld GameEngine::main_physics_world;
+Camera GameEngine::main_camera;
 
 b2Vec2 default_gravity(0.0f, 10.0f);
 b2World c_world(default_gravity);
@@ -18,6 +19,7 @@ void GameEngine::initialize(Display* w){
     renderer.renderer = SDL_CreateRenderer(GameEngine::window->window,-1,0);
     GameEngine::handler = EventHandler();
     GameEngine::main_physics_world.physics_world = &c_world;
+    GameEngine::main_camera = Camera();
 
     // Initalize SDL2 Library
     if(SDL_Init(SDL_INIT_EVENTS|SDL_INIT_VIDEO) == 0 ){
