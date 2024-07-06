@@ -8,25 +8,49 @@ AnimationController::AnimationController() {
 }
 
 int cycle_counter = 0;
+bool ch = true;
+Animation* prev_forced_anim;
+int temp_cycle;
 
+void AnimationController::countCycles(int c) {
+	if (this->c_anim->animation_current_frame == this->c_anim->frame_count-1) {
+		if (ch) {
+			cycle_counter += 1;
+		}
+		ch = false;
+	}
+	else {
+		ch = true;
+	}
+	if (cycle_counter == temp_cycle) {
+		this->c_anim = prev_forced_anim;
+		this->forced_state = 0;
+		cycle_counter = 0;
+		ch = true;
+		temp_cycle = -1;
+	}
+}
 void AnimationController::runAnimation(const char* id, int cycles){
-	nextFrame();
-	Animation* last_anim = c_anim;
+	Animation* temp = new Animation();
 
 
-	if (this->c_anim->sprite.identifer != id) {//Check to see if the id of the given animation is the same one that is already being played
+	if (this->forced_state) {
+		countCycles(cycles);
+	}else {
 		for (int i = 0; i < this->animations.size(); i++) {
 			if (this->animations[i].sprite.identifer == id) {
+				temp = c_anim;
 				this->c_anim = &this->animations[i];
 			}
 		}
 	}
 
 	if (cycles > 0) {
-		//Force play one animation
-		
+		temp_cycle = cycles;
+		prev_forced_anim = temp; // store the previously played animation before forced state
+		this->forced_state = 1; // Put the animation controller into a force play state
 	}
-
+	nextFrame();
 }
 
 void AnimationController::nextFrame() {

@@ -32,7 +32,6 @@ void Renderer::update(GameScene* s){
 void Renderer::renderGameSceneObjects(){
     for (int i = 0; i < this->scene->activeObjects.size(); i++) {
         GameObject* c = this->scene->activeObjects[i];
-        printf("%f\n", GameEngine::main_camera.pos.x);
         const SDL_FRect t_rect{
             c->p.body->GetPosition().x - c->animator.hx - GameEngine::main_camera.pos.x,
             c->p.body->GetPosition().y - c->animator.hy - GameEngine::main_camera.pos.y,

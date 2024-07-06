@@ -21,6 +21,10 @@ class Animation{
 
 struct AnimationController {
     float hx, hy;
+    int forced_state = 0;
+
+    b2Timer anim_timer;
+
     SDL_RendererFlip flip_state;
     AnimationController();
     Animation* c_anim; // The current animation that is played on screen
@@ -28,4 +32,6 @@ struct AnimationController {
     void runAnimation(const char* id, int cycles);// Runs a certain animation for a given cycle count, if given NULL then it will play the animation indefinitely
     SDL_Rect* getCurrentDrawFrame();
     void nextFrame();
+private:
+    void countCycles(int c);
 };

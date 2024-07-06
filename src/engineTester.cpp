@@ -26,7 +26,6 @@ void load_assets() {
 	ninja.animator.animations.push_back(Animation(Sprite("./res/ninja/Take Hit.png", "ninja_takehit"), 4));
 }
 
-
 int main(int argc,char **argv){
 	main_window = Display(window_title,WINDOW_WIDTH,WINDOW_HEIGHT);
 	GameEngine::initialize(&main_window);
@@ -46,7 +45,6 @@ int main(int argc,char **argv){
 
 	GameEngine::renderer.scene->addObjectToScene(&ninja);
 	GameEngine::renderer.scene->addObjectToScene(&ground_);
-
 	GameEngine::start_main_game_loop(game_loop,max_fps);
 	return 0;
 }
@@ -99,16 +97,6 @@ void game_loop(){
 		ninja.p.body->SetLinearVelocity(b2Vec2(ninja_speed, ninja.p.body->GetLinearVelocity().y));
 	}
 	GameEngine::main_camera.follow(&ninja);
-	//if (GameEngine::handler.keyPressed(SDL_SCANCODE_W)) {
-	//	//ninja.animator.runAnimation("ninja_run",-1);
-	//	//ninja.animator.flip_state = SDL_FLIP_HORIZONTAL;
-	//	//ninja.p.body->SetLinearVelocity(b2Vec2( -1*ninja_speed, ninja.p.body->GetLinearVelocity().y));
-	//}
-	//if (GameEngine::handler.keyPressed(SDL_SCANCODE_S)) {
-	//	//ninja.animator.runAnimation("ninja_run", -1);
-	//	//ninja.animator.flip_state = SDL_FLIP_NONE;
-	//	//ninja.p.body->SetLinearVelocity(b2Vec2(ninja_speed, ninja.p.body->GetLinearVelocity().y));
-	//}
 
 	/*JUMP FUNCTION*/
 	if (GameEngine::handler.keyPressed(SDL_SCANCODE_SPACE)) {
@@ -125,6 +113,7 @@ void game_loop(){
 	}
 	if (GameEngine::handler.keyReleased(SDL_SCANCODE_J)) {
 		ninja.animator.runAnimation("ninja_attack1", 1);
+		printf("ATTACK 1 PRESSED\n");
 	}
 	if (GameEngine::handler.keyReleased(SDL_SCANCODE_K)) {
 		ninja.animator.runAnimation("ninja_attack2", 1);
