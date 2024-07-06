@@ -32,8 +32,6 @@ void AnimationController::countCycles(int c) {
 }
 void AnimationController::runAnimation(const char* id, int cycles){
 	Animation* temp = new Animation();
-
-
 	if (this->forced_state) {
 		countCycles(cycles);
 	}else {

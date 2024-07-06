@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Physics.cpp" />
     <ClCompile Include="src\SpriteSheetCollection.cpp" />
     <ClCompile Include="src\Animation.cpp" />

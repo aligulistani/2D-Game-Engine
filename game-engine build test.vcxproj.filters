@@ -78,7 +78,7 @@
     <ClCompile Include="src\Physics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
+    <ClCompile Include="src\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

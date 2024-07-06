@@ -1,10 +1,11 @@
-﻿  Animation.cpp
-  engineTester.cpp
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(40,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(42,51): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(61,62): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(62,59): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(128,85): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(128,79): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
+﻿  engineTester.cpp
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(56,73): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(59,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(61,51): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(82,62): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(83,59): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(86,62): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(87,59): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(156,85): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\src\engineTester.cpp(156,79): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   game-engine build test.vcxproj -> C:\Users\istif\Desktop\Projects\C++ 2D Game Engine\2D-Game-Engine\x64\Debug\Game-Engine.exe
