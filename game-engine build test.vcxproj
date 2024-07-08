@@ -19,17 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Camera.cpp" />
-    <ClCompile Include="src\Physics.cpp" />
-    <ClCompile Include="src\SpriteSheetCollection.cpp" />
-    <ClCompile Include="src\Animation.cpp" />
-    <ClCompile Include="src\display.cpp" />
-    <ClCompile Include="src\engineTester.cpp" />
-    <ClCompile Include="src\entity.cpp" />
-    <ClCompile Include="src\EventHandler.cpp" />
-    <ClCompile Include="src\GameEngine.cpp" />
-    <ClCompile Include="src\GameObject.cpp" />
-    <ClCompile Include="src\GameScene.cpp" />
+    <ClCompile Include="src\game-engine\Camera.cpp" />
+    <ClCompile Include="src\game-engine\Physics.cpp" />
+    <ClCompile Include="src\game-engine\SpriteSheetCollection.cpp" />
+    <ClCompile Include="src\game-engine\Animation.cpp" />
+    <ClCompile Include="src\game-engine\display.cpp" />
+    <ClCompile Include="src\game-demo\game-demo.cpp" />
+    <ClCompile Include="src\game-engine\entity.cpp" />
+    <ClCompile Include="src\game-engine\EventHandler.cpp" />
+    <ClCompile Include="src\game-engine\GameEngine.cpp" />
+    <ClCompile Include="src\game-engine\GameObject.cpp" />
+    <ClCompile Include="src\game-engine\GameScene.cpp" />
     <ClCompile Include="src\imgui\imgui.cpp" />
     <ClCompile Include="src\imgui\imgui_demo.cpp" />
     <ClCompile Include="src\imgui\imgui_draw.cpp" />
@@ -37,10 +37,10 @@
     <ClCompile Include="src\imgui\imgui_impl_sdlrenderer2.cpp" />
     <ClCompile Include="src\imgui\imgui_tables.cpp" />
     <ClCompile Include="src\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="src\PhysicsObject.cpp" />
-    <ClCompile Include="src\Renderer.cpp" />
-    <ClCompile Include="src\Sprite.cpp" />
-    <ClCompile Include="src\Texture.cpp" />
+    <ClCompile Include="src\game-engine\PhysicsObject.cpp" />
+    <ClCompile Include="src\game-engine\Renderer.cpp" />
+    <ClCompile Include="src\game-engine\Sprite.cpp" />
+    <ClCompile Include="src\game-engine\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libraries\include\game-engine\Camera.h" />

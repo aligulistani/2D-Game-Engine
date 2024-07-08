@@ -10,15 +10,19 @@ class GameObject{
         GameObject(PhysicsComponent p);
         GameObject(float x, float y);
 
-        b2Vec3 color;
-        b2Vec2 velocity;
-        b2Vec2 pos;
+        b2Vec2 world_pos;
+        b2Vec2 rendering_size;
+        b2Vec2 hitbox_size;
+        float size_scale = 1.0f;
 
         PhysicsComponent p;
         AnimationController animator;
+        SDL_FRect rendering_data;
+        SDL_FRect Hitbox;
 
         void InitializeAsBasicBox(b2Vec2 size);
         void setPos(b2Vec2 pos);
-        void updateRect();
+        void update();
+        SDL_FRect getRenderingData();
         void Destroy();
 };

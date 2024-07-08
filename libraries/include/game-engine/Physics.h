@@ -1,5 +1,10 @@
 #pragma once
 #include<Box2D/Box2D.h>
+
+struct Hitbox {
+	//SDL_FRect f_rect;
+};
+
 struct PhysicsWorld {
 	b2World* physics_world;
 	float timeStep = 1.0f / 60.0f;
@@ -18,4 +23,6 @@ struct PhysicsComponent
 	b2Fixture* fixture;
 	void changeSizeofPhysicsBox(b2Vec2 size);
 };
+
+
 
