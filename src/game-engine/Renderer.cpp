@@ -33,7 +33,7 @@ void Renderer::renderGameSceneObjects(){
     for (int i = 0; i < this->scene->activeObjects.size(); i++) {
         GameObject* c = this->scene->activeObjects[i];
 
-        SDL_FRect t_rect = c->getRenderingData();
+        SDL_FRect t_rect = *c->getRenderingData();
         t_rect.x -= GameEngine::main_camera.pos.x;
         t_rect.y -= GameEngine::main_camera.pos.y;
 
@@ -44,8 +44,9 @@ void Renderer::renderGameSceneObjects(){
         SDL_SetRenderDrawColor(GameEngine::renderer.get(), 48, 252, 3, 255);
         SDL_RenderDrawRectF(GameEngine::renderer.get(),&c->Hitbox);
 
-        SDL_SetRenderDrawColor(GameEngine::renderer.get(), 207, 10, 17, 255);
-        SDL_RenderDrawRectF(GameEngine::renderer.get(), &t_rect);
+        //SDL_SetRenderDrawColor(GameEngine::renderer.get(), 207, 10, 17, 255);
+        //SDL_RenderDrawRectF(GameEngine::renderer.get(), &t_rect);
+
 
         SDL_RenderCopyExF(this->renderer, this->scene->activeObjects[i]->animator.c_anim->sprite.texture._rawImage,
             this->scene->activeObjects[i]->animator.getCurrentDrawFrame(),

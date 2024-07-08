@@ -3,24 +3,26 @@
 void game_loop();
 
 // Window Settings
-int WINDOW_WIDTH = 1280;
-int WINDOW_HEIGHT = 720;
+int WINDOW_WIDTH = 1024;
+int WINDOW_HEIGHT = 580;
 int max_fps = 50;
 const char* window_title = "Game-Engine Test";
 
 Display main_window;
 
-AnimationFrame square_animation;
+AnimationFrame platform_sprite;
+AnimationFrame bg_sprite;
 
 GameObject enemy;
 GameObject ninja;
 GameObject ground_;
-
+GameObject background;
 
 void load_assets() {
-	square_animation = AnimationFrame(Sprite("./res/square.png", "square"), 1);
-	ground_.animator.animations.push_back(square_animation);
-
+	platform_sprite = AnimationFrame(Sprite("./res/risk/platform.png", "platform"), 1);
+	bg_sprite = AnimationFrame(Sprite("./res/risk/s_bg.png", "background"), 1);
+	ground_.animator.animations.push_back(platform_sprite);
+	background.animator.animations.push_back(bg_sprite);
 	//Player
 	ninja.animator.animations.push_back(AnimationFrame(Sprite("./res/risk/huntress_idle.png", "idle"), 12, b2Vec2(6.0f,1.0f)));
 	ninja.animator.animations.push_back(AnimationFrame(Sprite("./res/risk/shoot1.png", "shoot1"), 9, b2Vec2(22.0f,6.0f)));
@@ -30,6 +32,7 @@ void load_assets() {
 	ninja.animator.animations.push_back(AnimationFrame(Sprite("./res/risk/huntress_jump.png", "ninja_jump"), 1));
 	ninja.animator.animations.push_back(AnimationFrame(Sprite("./res/risk/huntress_walk.png", "ninja_run"), 8));
 	ninja.animator.animations.push_back(AnimationFrame(Sprite("./res/ninja/Take Hit.png", "ninja_takehit"), 4));
+
 									
 	//Enemy
 	enemy.animator.animations.push_back(AnimationFrame(Sprite("./res/enemy/Idle.png", "enemy_idle"), 4));
@@ -47,10 +50,20 @@ int main(int argc,char **argv){
 	main_window = Display(window_title,WINDOW_WIDTH,WINDOW_HEIGHT);
 	GameEngine::initialize(&main_window);
 
+	background = GameObject();
+	background.InitializeAsBasicBox(b2Vec2(WINDOW_WIDTH,WINDOW_HEIGHT));
+	background.p.body->SetType(b2_staticBody);
+	background.p.body->SetTransform(b2Vec2(0.0f,500.0f), 0);
+	GameEngine::main_physics_world.physics_world->DestroyBody(background.p.body);
+	background.world_pos = b2Vec2(0.0f, 500.0f);
+
+
 	ninja = GameObject();
 	ninja.InitializeAsBasicBox(b2Vec2(20.0f,25.0f));
 	ninja.p.fixture->SetFriction(1.0f);
 	ninja.p.body->SetFixedRotation(true);
+	ninja.size_scale = 3.0f;
+
 
 	enemy = GameObject();
 	enemy.InitializeAsBasicBox(b2Vec2(200.0f, 100.0f));
@@ -65,6 +78,7 @@ int main(int argc,char **argv){
 
 	load_assets();
 
+	GameEngine::renderer.scene->addObjectToScene(&background);
 	GameEngine::renderer.scene->addObjectToScene(&ninja);
 	GameEngine::renderer.scene->addObjectToScene(&enemy);
 	GameEngine::renderer.scene->addObjectToScene(&ground_);
@@ -79,34 +93,15 @@ bool ninja_grounded = false;
 void game_loop(){
 	ImGui::ShowDemoWindow();
 
-	ninja.size_scale = 3.0f;
-
 	ground_.animator.runAnimation("square",-1);
-	//ground_.p.changeSizeofPhysicsBox(b2Vec2(ground_.hitbox.size, ground_.animator.hy));
-
-
-	//ninja.p.changeSizeofPhysicsBox(b2Vec2(ninja.hitbox_size.x , ninja.hitbox_size.y ));
+	background.animator.runAnimation("background",-1);
 	enemy.animator.runAnimation("enemy_idle",-1);
-
-	 //SPAWNING NEW SQUARES 
-	//if (GameEngine::handler.MousePressed(1)) {
-	//	GameObject* t = new GameObject();
-	//	t->InitializeAsBasicBox(b2Vec2(50.0f,50.0f));
-	//	t->animator.animations.push_back(square_animation);
-	//	t->animator.runAnimation("square", -1);
-	//	t->p.body->SetTransform(b2Vec2(GameEngine::handler.current_event.button.x + GameEngine::main_camera.pos.x, GameEngine::handler.current_event.button.y + GameEngine::main_camera.pos.y),0);
-	//	GameEngine::renderer.scene->addObjectToScene(t);
-	//}
-
-	//if (GameEngine::handler.keyPressed(SDL_SCANCODE_R)) {
-	//	GameEngine::renderer.scene->clearScene();
-	//}
 
 	if (ninja.p.body->GetLinearVelocity().y == 0.0f) {
 		// check to see if player is touching the ground by checking it's y velocity value, if true then we are allowed to jump
 		ninja_grounded = true;
 	}
-
+	ninja.animator.runAnimation("idle", -1);
 	//PLAYER MOVEMENT
 	if (GameEngine::handler.keyPressed(SDL_SCANCODE_A)) {
 		ninja.animator.runAnimation("ninja_run",-1);
@@ -123,23 +118,22 @@ void game_loop(){
 
 
 	/*JUMP FUNCTION*/
-	//if (GameEngine::handler.keyPressed(SDL_SCANCODE_SPACE)) {
-	//	if (ninja_grounded) {
-	//		ninja_grounded = false;
-	//		ninja.animator.runAnimation("ninja_jump", -1);
-	//		ninja.p.body->ApplyLinearImpulseToCenter(b2Vec2(0.0f, ninja.p.body->GetMass() * -50), true);
-	//	}
-	//}
-	//if (ninja.p.body->GetLinearVelocity().x == 0.0f) {
-	//	// Check to see if player is moving, if not moving then run the idle animation
-	//	ninja.animator.runAnimation("idle", -1);
-	//};
+	if (GameEngine::handler.keyPressed(SDL_SCANCODE_SPACE)) {
+		if (ninja_grounded) {
+			ninja_grounded = false;
+			ninja.animator.runAnimation("ninja_jump", -1);
+			ninja.p.body->ApplyLinearImpulseToCenter(b2Vec2(0.0f, ninja.p.body->GetMass() * -70), true);
+		}
+	}
+	if (ninja.p.body->GetLinearVelocity().x == 0.0f) {
+		// Check to see if player is moving, if not moving then run the idle animation
+		ninja.animator.runAnimation("idle", -1);
+	};
 
 	// other animation switches and checks
-	//if (ninja.p.body->GetLinearVelocity().y > 5.0f) {
-	//	ninja.animator.runAnimation("ninja_fall", -1);
-	//}
-	ninja.animator.runAnimation("idle", -1);
+	if (ninja.p.body->GetLinearVelocity().y > 5.0f) {
+		ninja.animator.runAnimation("ninja_fall", -1);
+	}
 	if (GameEngine::handler.keyPressed(SDL_SCANCODE_J)) {
 		ninja.animator.runAnimation("shoot1", 1);
 		printf("ATTACK 1 PRESSED\n");
@@ -148,9 +142,6 @@ void game_loop(){
 		ninja.animator.runAnimation("shoot2", 1);
 		printf("ATTACK 2 PRESSED\n");
 	}
-	//if (GameEngine::handler.keyReleased(SDL_SCANCODE_K)) {
-	//	ninja.animator.runAnimation("ninja_attack2", 1);
-	//}
 
 	ImGui::Begin("Debug Menu");
 	ImGui::SliderFloat("Size of HX (Animation)", &ninja.hitbox_size.x, 1.0f, 1000.0f);
@@ -166,5 +157,4 @@ void game_loop(){
 	ImGui::Text("Camera Pos: (%f,%f)", GameEngine::main_camera.pos.x, GameEngine::main_camera.pos.y);
 	ImGui::Text("Enemy Pos: (%f,%f)", enemy.p.body->GetPosition().x , enemy.p.body->GetPosition().y );
 	ImGui::End();
-
 }

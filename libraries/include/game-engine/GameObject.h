@@ -23,6 +23,6 @@ class GameObject{
         void InitializeAsBasicBox(b2Vec2 size);
         void setPos(b2Vec2 pos);
         void update();
-        SDL_FRect getRenderingData();
+        SDL_FRect* getRenderingData();
         void Destroy();
 };

@@ -38,6 +38,7 @@ void GameObject::update() {
 
 
     SDL_FRect t;
+    // REMOVE THIS DOG SHIT ASS CODE
     if (this->animator.c_anim->sprite.identifer == "shoot1") {
         t.x = (this->world_pos.x - this->hitbox_size.x * size_scale / 2) - 15.0f * size_scale;
         t.y = (this->world_pos.y - this->hitbox_size.y * size_scale / 2) - 8.0f * size_scale;
@@ -55,8 +56,8 @@ void GameObject::update() {
     //t.h = this->rendering_size.y * size_scale;
     this->rendering_data = t;
 };
-SDL_FRect GameObject::getRenderingData() {
-    return this->rendering_data;
+SDL_FRect* GameObject::getRenderingData() {
+    return &this->rendering_data;
 };
 
 void GameObject::Destroy() {
