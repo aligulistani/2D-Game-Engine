@@ -4,25 +4,42 @@
 #include"Physics.h"
 #include"Animation.h"
 
+
+struct RenderData {
+    //Data that is sent to the renderer to draw on the screen
+    int type;
+    SDL_FRect main_sprite;
+    SDL_FRect physics_hitbox; // IF NULL, dont render
+    SDL_FRect sprite_hitbox; // IF NULL, dont render
+};
+
 class GameObject{
     public:
         GameObject();
-        GameObject(PhysicsComponent p);
-        GameObject(float x, float y);
 
         b2Vec2 world_pos;
-        b2Vec2 rendering_size;
         b2Vec2 hitbox_size;
         float size_scale = 1.0f;
 
-        PhysicsComponent p;
         AnimationController animator;
-        SDL_FRect rendering_data;
-        SDL_FRect Hitbox;
-
-        void InitializeAsBasicBox(b2Vec2 size);
-        void setPos(b2Vec2 pos);
-        void update();
-        SDL_FRect* getRenderingData();
-        void Destroy();
+        RenderData rendering_data;
+        
+        void setWorldPosition(b2Vec2 pos);
+        b2Vec2 GetWorldPosition();
+        AnimationController* GetAnimator();
+        void ScaleSize(float v);
+        void InitializeAnimator();
+        RenderData* getRenderingData();
+        virtual void update();
+        virtual void Destroy();
 };
+
+struct Entity : public GameObject{
+    Entity();
+    Entity(RB_DATA rigidbody_data);
+    RigidBody* r_b;
+    RigidBody* GetRigidbody();
+    //void InitializeRigidBody(RB_DATA data);
+    void update() override;
+};
+

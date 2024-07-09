@@ -1,69 +1,102 @@
 
 #include<game-engine/main.h>
 GameObject::GameObject() {
-    this->p = PhysicsComponent();
     this->animator = AnimationController();
 };
-GameObject::GameObject(PhysicsComponent p){ this->p = p; };
-GameObject::GameObject(float x, float y){ this->world_pos = {x,y};};
 
-void GameObject::InitializeAsBasicBox(b2Vec2 size) {
-    this->p.def.position.Set(GameEngine::window->width/2,GameEngine::window->height/2);
-    this->p.def.type = b2_dynamicBody;
-    this->p.shape = b2PolygonShape();
-    this->rendering_size.x = size.x;
-    this->rendering_size.y = size.y;
-    this->hitbox_size.x = size.x;
-    this->hitbox_size.y = size.y;
-    this->p.shape.SetAsBox(this->hitbox_size.x/2, hitbox_size.y/2);
-    this->p.fixture_def = b2FixtureDef();
-    this->p.fixture_def.shape = &this->p.shape;
-    this->p.fixture_def.density = 1.0f;
-    //this->p.fixture_def.friction = 0.25f;
-    this->p.body = GameEngine::main_physics_world.physics_world->CreateBody(&this->p.def);
-    this->p.fixture = this->p.body->CreateFixture(&this->p.fixture_def);
-};
+Entity::Entity() {}
+Entity::Entity(RB_DATA rigidbody_data) {
+    this->r_b = new RigidBody(rigidbody_data);
+    this->hitbox_size = b2Vec2(rigidbody_data.inital_hitbox_size.x, rigidbody_data.inital_hitbox_size.y);
+    //this->InitializeRigidBody(rigidbody_data);
+    //this->InitializeAnimator();
+    this->animator = AnimationController();
+}
+
+//void Entity::InitializeRigidBody(RB_DATA data) {
+//    //this->GetRigidbody()->SetSize() = data.inital_world_size.x;
+//    //this->collider_size.y = data.inital_world_size.y;
+//
+//    this->r_b = RigidBody(data);
+//}
+
+//void GameObject::InitializeAnimator() {
+//    this->animator = AnimationController();
+//}
+
+AnimationController* GameObject::GetAnimator() {
+    return &this->animator;
+}
 
 void GameObject::update() {
-    this->world_pos = this->p.body->GetPosition();
-
-    this->p.changeSizeofPhysicsBox(b2Vec2(this->hitbox_size.x * size_scale, this->hitbox_size.y * size_scale));
-
-    SDL_FRect h;
-    h.x = this->p.body->GetPosition().x - this->hitbox_size.x * size_scale / 2;
-    h.y = this->p.body->GetPosition().y - this->hitbox_size.y * size_scale / 2;
-    h.w = this->hitbox_size.x * size_scale;
-    h.h = this->hitbox_size.y * size_scale;
-    this->Hitbox = h;
+    
+}
 
 
-    SDL_FRect t;
-    // REMOVE THIS DOG SHIT ASS CODE
-    if (this->animator.c_anim->sprite.identifer == "shoot1") {
-        t.x = (this->world_pos.x - this->hitbox_size.x * size_scale / 2) - 15.0f * size_scale;
-        t.y = (this->world_pos.y - this->hitbox_size.y * size_scale / 2) - 8.0f * size_scale;
-    }else if (this->animator.c_anim->sprite.identifer == "shoot2") {
-        t.x = (this->world_pos.x - this->hitbox_size.x * size_scale / 2) - 14.0f * size_scale;
-        t.y = (this->world_pos.y - this->hitbox_size.y * size_scale / 2) - 8.0f * size_scale;
+void GameObject::ScaleSize(float v) {
+    this->size_scale = v;
+}
+
+RigidBody* Entity::GetRigidbody() {
+    return this->r_b;
+}
+
+void Entity::update() {
+
+    //ALLIGN 2 the worl positions
+    this->world_pos.x = this->r_b->GetWorldPosition().x - this->r_b->GetSize().x / 2.0f;
+    this->world_pos.y = this->r_b->GetWorldPosition().y - this->r_b->GetSize().y / 2.0f;
+
+    //this->r_b->SetSize(b2Vec2(this->hitbox_size.x,this->hitbox_size.y));
+
+    SDL_FRect pre_main_sprite;
+    pre_main_sprite.x = this->world_pos.x ;
+    pre_main_sprite.y = this->world_pos.y ;
+
+    if (this->animator.c_anim->identifer == "shoot1") {
+        pre_main_sprite.w = (this->world_pos.x - this->r_b->GetSize().x * size_scale / 2) - 15.0f * size_scale;
+        pre_main_sprite.h = (this->world_pos.y - this->r_b->GetSize().y * size_scale / 2) - 8.0f * size_scale;
+    }
+    else if (this->animator.c_anim->identifer == "shoot2") {
+        pre_main_sprite.w = (this->world_pos.x - this->r_b->GetSize().x * size_scale / 2) - 14.0f * size_scale;
+        pre_main_sprite.h = (this->world_pos.y - this->r_b->GetSize().y * size_scale / 2) - 8.0f * size_scale;
     }
     else {
-        t.x = (this->world_pos.x - this->hitbox_size.x * size_scale / 2);
-        t.y = (this->world_pos.y - this->hitbox_size.y * size_scale / 2);
+        pre_main_sprite.w = (this->world_pos.x - this->r_b->GetSize().x * size_scale / 2);
+        pre_main_sprite.h = (this->world_pos.y - this->r_b->GetSize().y * size_scale / 2);
     }
-    t.w = (this->animator.c_anim->sprite.texture.w / this->animator.c_anim->frame_count) * size_scale ;
-    t.h = (this->animator.c_anim->sprite.texture.h) * size_scale;
-    //t.w = this->rendering_size.x * size_scale;
-    //t.h = this->rendering_size.y * size_scale;
-    this->rendering_data = t;
+
+    pre_main_sprite.w = (this->animator.c_anim->sprite.texture.w / this->animator.c_anim->frame_count) * size_scale;
+    pre_main_sprite.h = (this->animator.c_anim->sprite.texture.h) * size_scale;
+
+    this->r_b->SetSize(b2Vec2(pre_main_sprite.w,pre_main_sprite.h));
+
+    SDL_FRect pre_p_hitbox;
+    pre_p_hitbox.x = (this->r_b->GetRawBody()->GetPosition().x - this->r_b->GetSize().x / 2) * size_scale;
+    pre_p_hitbox.y = (this->r_b->GetRawBody()->GetPosition().y - this->r_b->GetSize().y / 2) * size_scale ;
+    pre_p_hitbox.w = this->r_b->GetSize().x * size_scale;
+    pre_p_hitbox.h = this->r_b->GetSize().y * size_scale;
+
+
+    RenderData r_data;
+    r_data.main_sprite = pre_main_sprite;
+    r_data.physics_hitbox = pre_p_hitbox;
+    r_data.sprite_hitbox = pre_main_sprite;
+
+    this->rendering_data = r_data;
 };
-SDL_FRect* GameObject::getRenderingData() {
+
+RenderData* GameObject::getRenderingData() {
     return &this->rendering_data;
 };
 
 void GameObject::Destroy() {
-    GameEngine::main_physics_world.physics_world->DestroyBody(this->p.body);
+   // GameEngine::main_physics_world.physics_world->DestroyBody(this->r_b.GetSize().x);
 };
 
-void GameObject::setPos(b2Vec2 pos){
+void GameObject::setWorldPosition(b2Vec2 pos){
     this->world_pos = pos;
+}
+b2Vec2 GameObject::GetWorldPosition() {
+    return this->world_pos;
 }

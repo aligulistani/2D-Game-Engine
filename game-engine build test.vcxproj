@@ -21,7 +21,6 @@
   <ItemGroup>
     <ClCompile Include="src\game-engine\Camera.cpp" />
     <ClCompile Include="src\game-engine\Physics.cpp" />
-    <ClCompile Include="src\game-engine\SpriteSheetCollection.cpp" />
     <ClCompile Include="src\game-engine\Animation.cpp" />
     <ClCompile Include="src\game-engine\display.cpp" />
     <ClCompile Include="src\game-demo\game-demo.cpp" />
@@ -39,7 +38,7 @@
     <ClCompile Include="src\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\game-engine\PhysicsObject.cpp" />
     <ClCompile Include="src\game-engine\Renderer.cpp" />
-    <ClCompile Include="src\game-engine\Sprite.cpp" />
+    <ClCompile Include="src\game-engine\SpriteSheet.cpp" />
     <ClCompile Include="src\game-engine\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -94,7 +93,7 @@
     <ClInclude Include="libraries\include\game-engine\main.h" />
     <ClInclude Include="libraries\include\game-engine\PhysicsObject.h" />
     <ClInclude Include="libraries\include\game-engine\Renderer.h" />
-    <ClInclude Include="libraries\include\game-engine\Sprite.h" />
+    <ClInclude Include="libraries\include\game-engine\SpriteSheet.h" />
     <ClInclude Include="libraries\include\game-engine\Texture.h" />
     <ClInclude Include="libraries\include\game-engine\Timer.h" />
     <ClInclude Include="libraries\include\imgui\imconfig.h" />
@@ -266,7 +265,6 @@
     <ClInclude Include="libraries\include\SDL3\SDL_version.h" />
     <ClInclude Include="libraries\include\SDL3\SDL_video.h" />
     <ClInclude Include="libraries\include\SDL3\SDL_vulkan.h" />
-    <ClInclude Include="libraries\include\game-engine\SpriteSheetCollection.h" />
     <ClInclude Include="libraries\include\game-engine\Physics.h" />
     <ClInclude Include="src\imgui\imconfig.h" />
     <ClInclude Include="src\imgui\imgui.h" />

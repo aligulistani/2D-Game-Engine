@@ -4,6 +4,6 @@ struct Camera {
 	Camera();
 	b2Vec2 pos;
 	float zoom_scale = 1.0f;
-	void follow(GameObject* g);
+	void follow(Entity* e);
 };
 

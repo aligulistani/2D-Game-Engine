@@ -1,16 +1,12 @@
 #include<game-engine/main.h>
 
-
+Animation::Animation() {}
 AnimationController::AnimationController() {
-	this->c_anim = new AnimationFrame();
-	this->c_anim->animation_speed = 150;
-	this->c_anim->frame_count = 1;
-	this->AlignFrames();
+	this->c_anim = new Animation();
 }
-
 int cycle_counter = 0;
 bool ch = true;
-AnimationFrame* temp_anim;
+Animation* temp_anim;
 int temp_cycle;
 
 void AnimationController::countCycles(int c) {
@@ -32,17 +28,28 @@ void AnimationController::countCycles(int c) {
 		temp_cycle = -1;
 	}
 }
-void AnimationController::runAnimation(const char* id, int cycles){
-	AnimationFrame* temp = new AnimationFrame();
+void AnimationController::AddAnimation(Animation a) {
+	this->animations.push_back(a);
+}
+
+Animation* AnimationController::FindAnimation(const char* id) {
+	for (int i = 0; i < this->animations.size(); i++) {
+		if (this->animations[i].identifer == id) {
+			return &this->animations[i];
+		}
+	}
+}
+void AnimationController::InitializeDefaultAnimation(const char* id) { // To-DO : NEED TO MAKE THIS PLAY WHEN NOTHING ELSE IS BEING PLAYED
+	this->c_anim = this->FindAnimation(id);
+
+}
+void AnimationController::PlayAnimation(const char* id, int cycles){
+	Animation* temp = new Animation();
 	if (this->forced_state) {
 		countCycles(cycles);
 	}else {
-		for (int i = 0; i < this->animations.size(); i++) {
-			if (this->animations[i].sprite.identifer == id) {
-				this->c_anim = &this->animations[i];
-				temp = c_anim;
-			}
-		}
+		this->c_anim = this->FindAnimation(id);
+		temp = c_anim;
 	}
 
 	if (cycles > 0) {
@@ -53,16 +60,10 @@ void AnimationController::runAnimation(const char* id, int cycles){
 	nextFrame();
 }
 
-void AnimationController::AlignFrames() {
-
-}
 
 void AnimationController::nextFrame() {
 	this->c_anim->animation_current_frame = (SDL_GetTicks() / this->c_anim->animation_speed) % this->c_anim->frame_count;
-
-	//this->c_anim->src.w = this->c_anim->offset.w;
-	//this->c_anim->src.h = this->c_anim->offset.h;j
-	this->c_anim->src.x = ((c_anim->t.w / this->c_anim->frame_count) * this->c_anim->animation_current_frame);
+	this->c_anim->src.x = ((c_anim->sprite.texture.w / this->c_anim->frame_count) * this->c_anim->animation_current_frame);
 }
 SDL_Rect* AnimationController::getCurrentDrawFrame() {
 	return &this->c_anim->src;
@@ -70,47 +71,21 @@ SDL_Rect* AnimationController::getCurrentDrawFrame() {
 
 Texture temp_t;
 
-AnimationFrame::AnimationFrame(){
-    this->frame_count = 1;
-	this->sprite = Sprite("./res/missing.png", "missing");
-}
-AnimationFrame::AnimationFrame(Sprite s, int frames) {
-	this->frame_count = frames;
-	this->t = s.texture;
-
-	this->offset = b2Vec2(0.0f,0.0f);
-	this->sprite = s;
-
-	this->frame_center = b2Vec2((t.w / this->frame_count) / 2, t.h / 2);
-
-	this->src.x = 0;
-	this->src.y = 0;
-	this->src.w = frame_center.x * 2;
-	this->src.h = t.h;
-
-	this->animation_speed = animation_speed; // Default Speed is 150 
-};
-AnimationFrame::AnimationFrame(Sprite s, int frames, b2Vec2 center){
-    this->frame_count = frames;
-	this->t = s.texture;
+Animation::Animation(SpriteSheet s, int frame_count, const char* identifer):
+	frame_count(frame_count), sprite(s),identifer(identifer){
 	
-	this->offset = offset;
-	this->sprite = s;
-
-	this->frame_center = b2Vec2((t.w / this->frame_count) / 2, t.h / 2);
-
 	this->src.x = 0;
 	this->src.y = 0;
-	this->src.w = frame_center.x*2;
-	this->src.h = t.h;
-
-	this->animation_speed = animation_speed; // Default Speed is 150 milliseconds
+	this->src.w = (this->sprite.texture.w / this->frame_count) ;
+	this->src.h = this->sprite.texture.h;
+	this->animation_speed = 100; 
 };
+
 
 int c = 0;
 bool p;
 
-void AnimationFrame::animate(){
+void Animation::animate(){
 	//if(this->animation_current_frame==5 && p) {
 	//	p = false;
 	//	if(c>9) {
@@ -123,7 +98,7 @@ void AnimationFrame::animate(){
 	//	p = true;
 	//}
 }
-void AnimationFrame::setAnimationSpeed(int s){
+void Animation::setAnimationSpeed(int s){
 	// Sets the amount of time each frame of a sprite is displayed for
 	// The time is measured in milliseconds
 	this->animation_speed  = s;

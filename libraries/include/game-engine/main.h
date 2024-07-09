@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_image.h>
 
@@ -14,14 +15,13 @@
 #include<filesystem>
 #include<string>
 
-#include<game-engine/SpriteSheetCollection.h>
 #include<game-engine/Physics.h>
 #include<game-engine/Entity.h>
 #include<game-engine/GameScene.h>
 #include<game-engine/Renderer.h>
 #include<game-engine/display.h>
 #include<game-engine/eventHandler.h>
-#include<game-engine/Sprite.h>
+#include<game-engine/SpriteSheet.h>
 #include<game-engine/GameObject.h>
 #include<game-engine/Texture.h>
 #include<game-engine/Timer.h>

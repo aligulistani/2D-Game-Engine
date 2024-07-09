@@ -65,6 +65,9 @@ void GameEngine::start_main_game_loop(void (*game_loop_func)(), int fps_cap){
 
         //UPDATE GAMEOBJECTS
         for (int i = 0; i < renderer.scene->activeObjects.size();i++) {
+            //Entity* p_e = dynamic_cast<Entity*>(renderer.scene->activeObjects[i]);
+            //if (p_e != nullptr) { p_e->update(); };
+            //float n = printf("%f\n", renderer.scene->activeObjects[i]->GetRigidbody()->GetWorldPosition().x);
             renderer.scene->activeObjects[i]->update();
         }
 
@@ -75,7 +78,7 @@ void GameEngine::start_main_game_loop(void (*game_loop_func)(), int fps_cap){
 
         //Physics Handling for every tick
         GameEngine::main_physics_world.NextStep();
-
+        
         // Delta Time Calculations
         previous_tick_t = current_tick_t;
         current_tick_t = SDL_GetTicks();
